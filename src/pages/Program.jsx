@@ -101,23 +101,23 @@ Contact: 7080224214, 7080224215, 7080224216
     {
       id: 6,
       year: 2025,
-      status: "Upcoming",
-      type: "Ashram Event",
-      title: "Upcoming Ashram Event",
-      description: `🌺 Jai Gurubande Swara Yoga Sadhana 🌺
+      status: "आगामी",
+      type: "आश्रम कार्यक्रम",
+      title: "आगामी आश्रम कार्यक्रम",
+      description: `🌺 जय गुरुबंदे स्वर योग साधना 🌺
 
-Date: 17th September 2025  
-Time: From 12:00 PM onwards  
-Venue: Auto Tech Maruti Workshop, Nadesar Ghausabad, Varanasi
+तारीख: 17 सितंबर 2025  
+समय: दोपहर 12:00 बजे से  
+स्थान: ऑटो टेक मारुति कार्यशाला, नादेसर ग़ौसाबाद, वाराणसी
 
-Organizers: Shri Mahendra Mistri, Shri Pradeep Yadav, Shri Manoj Kumar  
-Contact: 6393271872, 9451890721
+आयोजक: श्री महेंद्र मिस्त्री, श्री प्रदीप यादव, श्री मनोज कुमार  
+संपर्क: 6393271872, 9451890721
 
-👉 All devotees are invited to attend on the occasion of Vishwakarma Puja and receive blessings.`,
+👉 सभी भक्तों को विश्वकर्मा पूजा के अवसर पर आमंत्रित किया जाता है ताकि वे आशीर्वाद प्राप्त कर सकें।`,
       image: gurujiImage,
-      time: "🕛 Time: From 12:00 PM onwards",
-      date: "📅 Date: 17th September 2025, Wednesday",
-      location: "📍 Venue: Auto Tech Maruti Workshop, Nadesar Ghausabad, Varanasi",
+      time: "🕛 समय: दोपहर 12:00 बजे से",
+      date: "📅 तारीख: 17 सितंबर 2025, बुधवार",
+      location: "📍 स्थान: ऑटो टेक मारुति कार्यशाला, नादेसर ग़ौसाबाद, वाराणसी",
     },
   ];
 
@@ -129,9 +129,9 @@ Contact: 6393271872, 9451890721
 
   const filteredData = selectedProgram
     ? data.filter(
-        (item) =>
-          `${item.year} ${item.status} ${item.type}` === selectedProgram
-      )
+      (item) =>
+        `${item.year} ${item.status} ${item.type}` === selectedProgram
+    )
     : [];
 
   return (
