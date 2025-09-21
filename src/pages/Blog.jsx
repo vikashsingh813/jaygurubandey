@@ -30,11 +30,11 @@ const Blog = () => {
     {
       id: 2,
       images: [blog2a, blog2b, blog2c, blog2d],
-      title: "Satsang At Ashram",
-      date: "10 Aug 2025",
-      author: "Ashram Team",
+      title: "आश्रम में सत्संग",
+      date: "10 अगस्त 2025",
+      author: "आश्रम टीम",
       description:
-        "An immersive retreat was organized in the serene ashram environment, offering participants an opportunity to deepen their practice of yoga and meditation. The retreat emphasized self-reflection, inner peace, and spiritual growth, allowing devotees to reconnect with their true selves amidst the tranquil surroundings.",
+        "एक गहन रिट्रीट शांत आश्रम वातावरण में आयोजित किया गया, जिसने प्रतिभागियों को योग और ध्यान का अभ्यास गहराई से करने का अवसर प्रदान किया। इस रिट्रीट में आत्म-प्रतिबिंब, आंतरिक शांति और आध्यात्मिक विकास पर विशेष जोर दिया गया, जिससे भक्त शांत परिवेश में अपने सच्चे आत्मा से पुनः जुड़ सके।",
     },
     {
       id: 3,
