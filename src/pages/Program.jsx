@@ -175,7 +175,7 @@ Contact: 6393271872, 9451890721
       ) : (
         selectedProgram && (
           <p style={{ color: "#fff", marginTop: "20px" }}>
-            No programs found for this selection.
+            इस चयन के लिए कोई कार्यक्रम नहीं मिला।
           </p>
         )
       )}
