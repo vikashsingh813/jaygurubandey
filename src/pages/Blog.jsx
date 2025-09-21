@@ -96,9 +96,9 @@ const Blog = () => {
 
   return (
     <div className="blog-container">
-      <h2 className="blog-title">🌸 The Spiritual Voyage 🌸</h2>
+      <h2 className="blog-title">🌸 आध्यात्मिक यात्रा 🌸</h2>
       <p className="blog-subtitle">
-        Teachings, events, and experiences from the spiritual journey.
+        आध्यात्मिक यात्रा से शिक्षाएँ, कार्यक्रम और अनुभव.
       </p>
 
       <div className="blog-grid">
