@@ -54,21 +54,21 @@ const ChatWithUs = () => {
         <form className="chat-form" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Enter your Name"
+            placeholder="अपना नाम दर्ज करें"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
           <input
             type="email"
-            placeholder="Enter your Email"
+            placeholder="अपना ईमेल दर्ज करें"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <input
             type="tel"
-            placeholder="Enter your Phone Number"
+            placeholder="अपना फ़ोन नंबर दर्ज करें"
             value={phone}
             onChange={(e) => {
               const onlyNums = e.target.value.replace(/\D/g, ""); // remove non-digits
@@ -80,12 +80,12 @@ const ChatWithUs = () => {
           />
 
           <textarea
-            placeholder="Enter your Question"
+            placeholder="अपना प्रश्न दर्ज करें"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             required
           />
-          <button type="submit">Send Message</button>
+          <button type="submit">संदेश भेजें</button>
         </form>
         {successMessage && <p className="success-msg">{successMessage}</p>}
       </div>
