@@ -9,8 +9,8 @@ const About = () => {
     <div className="about-page">
       {/* Sacred Introduction */}
       <section className="about-intro">
-        <h1>In the Light of Guruji’s Grace</h1>
-        <p className="subtext">“This ashram is not just a place—it is a presence.”</p>
+        <h1>गुरुजी की कृपा के प्रकाश में</h1>
+        <p className="subtext">“यह आश्रम केवल एक स्थान नहीं है—यह एक अनुभूति है।”</p>
       </section>
 
       {/* Guruji’s Journey */}
