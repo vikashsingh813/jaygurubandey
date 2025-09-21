@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer-content">
-        <p>© {new Date().getFullYear()} Jay Guru Bandey. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} जय गुरु बंदे. सर्वाधिकार सुरक्षित.</p>
 
         <div className="social-links">
           <a href="https://www.facebook.com/share/g/1AZvFisxcs/" 
