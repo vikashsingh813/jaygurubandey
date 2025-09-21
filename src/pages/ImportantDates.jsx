@@ -19,44 +19,45 @@ const ImportantDates = () => {
       <div className="content-section bottom">
         <div className="dates-box">
           <p>
-            🔔 <strong>Chitauna Dham, Varanasi (Headquarters)</strong> – Every month on <strong>1, 2, 15, 16, 25 and 26</strong><br />
-            📞 Contact: 7080224214, 7080224215, 7080224216
+            🔔 <strong>चितौना धाम, वाराणसी (मुख्यालय)</strong> – हर महीने <strong>1, 2, 15, 16, 25 और 26</strong><br />
+            📞 संपर्क: 7080224214, 7080224215, 7080224216
           </p>
 
           <p>
-            📅 <strong>Jai Gurubande Jan Kalyan Ashram (Ballia)</strong> – Every month on <strong>5</strong><br />
-            📞 Contact: 8858437503, 6388001542
+            📅 <strong>जय गुरुबंदे जन कल्याण आश्रम (बलिया)</strong> – हर महीने <strong>5</strong><br />
+            📞 संपर्क: 8858437503, 6388001542
           </p>
 
           <p>
-            📅 <strong>Nagawa Ashram (Ghazipur)</strong> – Every month on <strong>4 and 19</strong><br />
-            📞 Contact: 7080224203
+            📅 <strong>नगवा आश्रम (गाजीपुर)</strong> – हर महीने <strong>4 और 19</strong><br />
+            📞 संपर्क: 7080224203
           </p>
 
           <p>
-            📅 <strong>Mirzapur Ashram</strong> – Every month on <strong>3</strong><br />
-            📞 Contact: 7651881816
+            📅 <strong>मिर्जापुर आश्रम</strong> – हर महीने <strong>3</strong><br />
+            📞 संपर्क: 7651881816
           </p>
 
           <p>
-            📅 <strong>Shivramapur (At the residence of Shri Girja Prasad Yadav Ji)</strong> – Every month on <strong>27</strong><br />
-            📞 Contact: 8738868292
+            📅 <strong>शिवरामपुर (श्री गीर्जा प्रसाद यादव जी के निवास पर)</strong> – हर महीने <strong>27</strong><br />
+            📞 संपर्क: 8738868292
           </p>
 
           <p>
-            📅 <strong>Sidhagar Ghat Ashram (Ghazipur)</strong> – Every month on <strong>23</strong><br />
-            📞 Contact: 8808305735, 9793900455
+            📅 <strong>सिद्धागढ़ घाट आश्रम (गाजीपुर)</strong> – हर महीने <strong>23</strong><br />
+            📞 संपर्क: 8808305735, 9793900455
           </p>
 
           <p>
-            📅 <strong>Gorakhpur Ashram</strong> – Every month on <strong>21 and 22</strong><br />
-            📞 Contact: 9935908011
+            📅 <strong>गोरखपुर आश्रम</strong> – हर महीने <strong>21 और 22</strong><br />
+            📞 संपर्क: 9935908011
           </p>
 
           <p>
-            📅 <strong>Jai Gurubande Ashram, Nagle (Mumbai)</strong> – Every month from <strong>6 to 10</strong><br />
-            📞 Contact: 9819560938
+            📅 <strong>जय गुरुबंदे आश्रम, नागले (मुंबई)</strong> – हर महीने <strong>6 से 10</strong><br />
+            📞 संपर्क: 9819560938
           </p>
+
         </div>
       </div>
     </div>
