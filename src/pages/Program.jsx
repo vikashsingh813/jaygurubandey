@@ -138,13 +138,13 @@ Contact: 6393271872, 9451890721
     <div className="program-container">
       {/* Program Dropdown */}
       <div className="dropdown-group">
-        <label htmlFor="program">Select Program :</label>
+        <label htmlFor="program">कार्यक्रम चुनें :</label>
         <select
           id="program"
           value={selectedProgram}
           onChange={(e) => setSelectedProgram(e.target.value)}
         >
-          <option value="">-- Select Program --</option>
+          <option value="">-- कार्यक्रम चुनें --</option>
           {programOptions.map((option, index) => (
             <option key={index} value={option}>
               {option}
