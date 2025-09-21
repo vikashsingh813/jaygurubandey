@@ -93,7 +93,7 @@ const Bhajan = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          Satguru Chalisa <span className="arrow">→</span>
+          सतगुरु चालीसा <span className="arrow">→</span>
         </a>
 
         <a
@@ -102,7 +102,7 @@ const Bhajan = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          Satguru Arti <span className="arrow">→</span>
+          सतगुरु आरती <span className="arrow">→</span>
         </a>
 
         {/* New Bhajan Sangrah Button */}
@@ -112,7 +112,7 @@ const Bhajan = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          Bhajan Sangrah<span className="arrow">→</span>
+          भजन संग्रह<span className="arrow">→</span>
         </a>
       </div>
     </div>
