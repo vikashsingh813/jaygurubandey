@@ -57,11 +57,14 @@ const About = () => {
           <img src={daily} alt="Daily" />
         </div>
         <div className="daily-text">
-          <h2>Daily Life at the Ashram</h2>
+          <h2>आश्रम में दैनिक जीवन</h2>
           <p>
-            The rhythm of the Ashram flows in harmony with nature and the Divine. Each day begins before sunrise, when the stillness of dawn is embraced with sacred chants and prayers that awaken the spirit. As the sun rises, seekers gather for meditation, immersing themselves in silence and inner reflection, aligning their hearts with peace and clarity.
+            आश्रम की लय प्रकृति और ईश्वर के साथ सामंजस्य में बहती है।
+            प्रत्येक दिन सूर्योदय से पहले शुरू होता है, जब भोर की शांति को पवित्र मंत्रों और प्रार्थनाओं के साथ अपनाया जाता है, जो आत्मा को जाग्रत करती हैं।
+            जैसे ही सूरज उगता है, साधक ध्यान के लिए एकत्र होते हैं, स्वयं को मौन और आंतरिक चिंतन में डुबोते हैं, और अपने हृदय को शांति और स्पष्टता के साथ संरेखित करते हैं।
             <br /><br />
-            The mornings are often filled with study of scriptures, discourses, and selfless service — whether it be tending to the gardens, preparing prasad, or supporting the needs of fellow seekers. Every action, no matter how small, is performed with mindfulness and devotion, transforming daily duties into acts of worship.
+            सुबह का समय अक्सर शास्त्रों के अध्ययन, प्रवचन और नि:स्वार्थ सेवा से भरा होता है — चाहे वह बगीचों की देखभाल करना हो, प्रसाद तैयार करना हो, या अन्य साधकों की आवश्यकताओं में सहायता करना हो।
+            हर क्रिया, चाहे कितनी भी छोटी क्यों न हो, सावधानी और भक्ति के साथ की जाती है, जिससे दैनिक कार्य पूजा के कर्म में परिवर्तित हो जाते हैं।
           </p>
         </div>
       </section>
