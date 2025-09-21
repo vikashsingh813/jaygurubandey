@@ -129,9 +129,9 @@ const Program = () => {
 
   const filteredData = selectedProgram
     ? data.filter(
-      (item) =>
-        `${item.year} ${item.status} ${item.type}` === selectedProgram
-    )
+        (item) =>
+          `${item.year} ${item.status} ${item.type}` === selectedProgram
+      )
     : [];
 
   return (
@@ -144,7 +144,9 @@ const Program = () => {
           value={selectedProgram}
           onChange={(e) => setSelectedProgram(e.target.value)}
         >
-          <option value="">-- कार्यक्रम चुनें --</option>
+          <option value="" hidden>
+            -- कार्यक्रम चुनें --
+          </option>
           {programOptions.map((option, index) => (
             <option key={index} value={option}>
               {option}
