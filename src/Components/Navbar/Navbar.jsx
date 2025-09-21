@@ -43,14 +43,14 @@ const Navbar = () => {
       />
 
       <ul className={mobileMenu ? 'nav-links' : 'nav-links hide-mobile-menu'}>
-        <li><button onClick={() => handleNavClick('/')} className={linkClass({isActive: location.pathname === '/'})}>Home</button></li>
-        <li><button onClick={() => handleNavClick('/about')} className={linkClass({isActive: location.pathname === '/about'})}>About</button></li>
-        <li><button onClick={() => handleNavClick('/satsang')} className={linkClass({isActive: location.pathname === '/satsang'})}>Amritvani</button></li>
-        <li><button onClick={() => handleNavClick('/bhajan')} className={linkClass({isActive: location.pathname === '/bhajan'})}>Bhajan</button></li>
-        <li><button onClick={() => handleNavClick('/program')} className={linkClass({isActive: location.pathname === '/program'})}>Program</button></li>
-        <li><button onClick={() => handleNavClick('/blog')} className={linkClass({isActive: location.pathname === '/blog'})}>Blog</button></li>
-        <li><button onClick={() => handleNavClick('/gallery')} className={linkClass({isActive: location.pathname === '/gallery'})}>Gallery</button></li>
-        <li><button onClick={() => handleNavClick('/contact')} className={linkClass({isActive: location.pathname === '/contact'})}>Contact Us</button></li>
+        <li><button onClick={() => handleNavClick('/')} className={linkClass({isActive: location.pathname === '/'})}>घर</button></li>
+        <li><button onClick={() => handleNavClick('/about')} className={linkClass({isActive: location.pathname === '/about'})}>बारे में</button></li>
+        <li><button onClick={() => handleNavClick('/satsang')} className={linkClass({isActive: location.pathname === '/satsang'})}>अमृतवाणी</button></li>
+        <li><button onClick={() => handleNavClick('/bhajan')} className={linkClass({isActive: location.pathname === '/bhajan'})}>भजन</button></li>
+        <li><button onClick={() => handleNavClick('/program')} className={linkClass({isActive: location.pathname === '/program'})}>कार्यक्रम</button></li>
+        <li><button onClick={() => handleNavClick('/blog')} className={linkClass({isActive: location.pathname === '/blog'})}>ब्लॉग</button></li>
+        <li><button onClick={() => handleNavClick('/gallery')} className={linkClass({isActive: location.pathname === '/gallery'})}>गैलरी</button></li>
+        <li><button onClick={() => handleNavClick('/contact')} className={linkClass({isActive: location.pathname === '/contact'})}>संपर्क करें</button></li>
       </ul>
 
       {/* Right side circle (refresh on click) */}
