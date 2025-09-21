@@ -50,7 +50,7 @@ const Navbar = () => {
         <li><button onClick={() => handleNavClick('/program')} className={linkClass({isActive: location.pathname === '/program'})}>कार्यक्रम</button></li>
         <li><button onClick={() => handleNavClick('/blog')} className={linkClass({isActive: location.pathname === '/blog'})}>ब्लॉग</button></li>
         <li><button onClick={() => handleNavClick('/gallery')} className={linkClass({isActive: location.pathname === '/gallery'})}>गैलरी</button></li>
-        <li><button onClick={() => handleNavClick('/contact')} className={linkClass({isActive: location.pathname === '/contact'})}>संपर्क करें</button></li>
+        <li><button onClick={() => handleNavClick('/contact')} className={linkClass({isActive: location.pathname === '/contact'})}>हमसे संपर्क करें</button></li>
       </ul>
 
       {/* Right side circle (refresh on click) */}
