@@ -39,11 +39,14 @@ const About = () => {
           <img src={vision} alt="Vision" />
         </div>
         <div className="vision-text">
-          <h2>Ashram’s Vision & Values</h2>
+          <h2>आश्रम का दृष्टिकोण और मूल्य</h2>
           <p>
-            The Ashram is not merely a place; it is a living sanctuary where seekers find peace, purpose, and spiritual nourishment. Its vision is to serve as a guiding light for all who yearn to rise above the distractions of the material world and connect with the eternal truth within.
+            आश्रम केवल एक स्थान नहीं है; यह एक जीवंत पवित्र स्थल है जहाँ साधक शांति, उद्देश्य और आध्यात्मिक पोषण पाते हैं।
+            इसका दृष्टिकोण उन सभी के लिए एक मार्गदर्शक प्रकाश के रूप में कार्य करना है, जो भौतिक जगत की व्यस्तताओं से ऊपर उठने और अपने भीतर के शाश्वत सत्य से जुड़ने की लालसा रखते हैं।
             <br /><br />
-            Rooted deeply in the timeless wisdom of the Vedanta — the philosophy of oneness — the Ashram reminds every soul that the Divine exists equally in all beings. Through the path of Bhakti Yoga, seekers cultivate devotion and unconditional love, softening the heart and opening the way to Divine grace. Through Karma Yoga, they learn the art of selfless service, discovering that true fulfillment comes not in taking, but in giving.
+            वेदांत की शाश्वत ज्ञान पर गहराई से आधारित — जो एकता का दर्शन है — आश्रम प्रत्येक आत्मा को स्मरण कराता है कि ईश्वर सभी प्राणियों में समान रूप से विद्यमान हैं।
+            भक्ति योग के मार्ग से साधक भक्ति और नि:स्वार्थ प्रेम की खेती करते हैं, हृदय को कोमल बनाते हैं और दिव्य कृपा के मार्ग को खोलते हैं।
+            कर्म योग के माध्यम से, वे नि:स्वार्थ सेवा की कला सीखते हैं और यह अनुभव करते हैं कि सच्ची पूर्णता लेने में नहीं, बल्कि देने में निहित है।
           </p>
         </div>
       </section>
