@@ -4,7 +4,7 @@ import ScrollingText from "../../pages/ScrollingText";
 import "./Hero.css";
 
 import bio from "../../assets/bio.jpg";
-import hero1 from "../../assets/hero1.jpg"; 
+import hero1 from "../../assets/hero1.jpg";
 import hero2 from "../../assets/hero2.png";
 import photo1 from "../../assets/photo1.jpg";
 import photo6 from "../../assets/photo6.jpg";
@@ -23,7 +23,10 @@ const Hero = () => {
     });
   }, []);
 
-  const fullText = `Param Sant Swami Jai Gurubande Ji Maharaj\nLet’s Move Towards God And Understand Sanatan Dharma.\nIt’s a spiritual and philosophical message encouraging people to seek divine connection and explore the essence of Sanatan Dharma.`;
+  const fullText = `परम संत स्वामी जय गुरुबंदे जी महाराज\n
+ईश्वर की ओर बढ़ें और सनातन धर्म को समझें।\n
+यह एक आध्यात्मिक और दार्शनिक संदेश है, जो लोगों को दिव्य संबंध स्थापित करने और सनातन धर्म के सार का अन्वेषण करने के लिए प्रोत्साहित करता है।
+`;
 
   const [displayedText, setDisplayedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
