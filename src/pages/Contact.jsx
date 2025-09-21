@@ -13,7 +13,7 @@ const ContactUs = () => {
         <div className="contact-details">
           <p><strong>आश्रम का नाम :</strong> श्री गुरु आश्रम</p>
           <p><strong>ईमेल आईडी :</strong> info@guruashram.org</p>
-          <p><strong>संपर्क नंबर :</strong> +91 98765 43210</p>
+          <p><strong>संपर्क नंबर :</strong> +91 9876543210</p>
           <p><strong>स्थान :</strong> हैदराबाद, तेलंगाना, भारत</p>
 
           <div className="map-box">
