@@ -39,11 +39,11 @@ const Blog = () => {
     {
       id: 3,
       images: [blog3a, blog3b, blog3c],
-      title: "Bhajan",
-      date: "26 Jan 2025",
-      author: "Devotees",
+      title: "भजन",
+      date: "26 जनवरी 2025",
+      author: "भक्त",
       description:
-        "This was a soulful evening of bhajan and satsang where family, friends, and neighbors came together in devotion, singing with joy and clapping in rhythm to the beats of traditional instruments. The simple decorations, heartfelt prayers, and collective voices created an atmosphere filled with positivity, peace, and divine energy, reminding everyone of the power of togetherness, faith, and inner harmony.",
+        "यह एक भावपूर्ण संध्या थी जिसमें भजन और सत्संग का आनंद लिया गया, जहाँ परिवार, मित्र और पड़ोसी भक्ति भाव से एकत्र हुए। उन्होंने हर्षोल्लास के साथ भजन गाए और पारंपरिक वाद्ययंत्रों की ताल पर तालियों के साथ सहभाग किया। साधारण सजावट, हृदय से की गई प्रार्थनाएँ और सामूहिक आवाज़ ने एक ऐसा वातावरण तैयार किया जो सकारात्मकता, शांति और दिव्य ऊर्जा से परिपूर्ण था, और सभी को एकजुटता, श्रद्धा और आंतरिक सामंजस्य की शक्ति की याद दिलाई।",
     },
   ];
 
