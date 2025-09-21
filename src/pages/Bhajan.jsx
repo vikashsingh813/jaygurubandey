@@ -67,7 +67,7 @@ const Bhajan = () => {
 
   return (
     <div className="bhajan-container">
-      <h1 className="bhajan-title">Bhajan Moments</h1>
+      <h1 className="bhajan-title">भजन क्षण</h1>
 
       {/* Video Grid */}
       <div className="video-grid">
@@ -79,7 +79,7 @@ const Bhajan = () => {
               allowFullScreen
             ></iframe>
             <a href={video.linkUrl} target="_blank" rel="noopener noreferrer">
-              Listen {video.title}
+              देखें  {video.title}
             </a>
           </div>
         ))}
