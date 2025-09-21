@@ -21,11 +21,11 @@ const Blog = () => {
     {
       id: 1,
       images: [blog1a, blog1b],
-      title: "Guru Purnima 2025",
-      date: "6 July 2025",
-      author: "Ashram Team",
+      title: "गुरु पूर्णिमा 2025",
+      date: "6 जुलाई 2025",
+      author: "आश्रम टीम",
       description:
-        "A sacred gathering was held where devotees wholeheartedly expressed their gratitude to Guruji. The atmosphere was filled with devotion as everyone participated in satsang, sang soulful bhajans, and engaged in seva with deep reverence and joy.",
+        "एक पवित्र संगम का आयोजन हुआ, जहाँ भक्तों ने गुरुजी के प्रति अपनी कृतज्ञता हृदय से प्रकट की। वातावरण भक्ति से सराबोर हो उठा जब सभी ने सत्संग में भाग लिया, भावपूर्ण भजन गाए और गहन श्रद्धा व आनंद के साथ सेवा में संलग्न हुए।",
     },
     {
       id: 2,
