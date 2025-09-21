@@ -50,7 +50,7 @@ const ChatWithUs = () => {
 
       {/* Right Side Chat Box */}
       <div className="chat-container">
-        <h2 className="chat-title">Chat With Us</h2>
+        <h2 className="chat-title">हमसे चैट करें</h2>
         <form className="chat-form" onSubmit={handleSubmit}>
           <input
             type="text"
