@@ -80,11 +80,11 @@ const Hero = () => {
           {textLines[2] && <p>{textLines[2]}<span className="cursor"></span></p>}
 
           <button className="btn" onClick={handleChatClick}>
-            Chat With Us <span className="arrow">→</span>
+            हमसे चैट करें <span className="arrow">→</span>
           </button>
 
           <button className="btn announcement-btn" onClick={handleAnnouncementClick}>
-            Important Dates <span className="arrow">→</span>
+            महत्वपूर्ण तिथियाँ <span className="arrow">→</span>
           </button>
         </div>
       </div>
