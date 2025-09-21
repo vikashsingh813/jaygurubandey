@@ -66,17 +66,17 @@ Venue: Babatpur Airport, Varanasi`,
     {
       id: 4,
       year: 2025,
-      status: "Upcoming",
-      type: "Travel Information",
-      title: "Upcoming Travel Information",
-      description: `Notice: Satguru Sahib will arrive at Babatpur Airport, Varanasi.
+      status: "आगामी",
+      type: "यात्रा सूचना",
+      title: "आगामी यात्रा सूचना",
+      description: `सूचना: सतगुरु साहिब बाबतपुर हवाई अड्डे, वाराणसी पहुँचेंगे।
 
-Darshan Time: 5:30 PM  
-Venue: Babatpur Airport, Varanasi`,
+दर्शन समय: शाम 5:30 बजे  
+स्थान: बाबतपुर हवाई अड्डा, वाराणसी`,
       image: gurujiImage,
-      time: "🕠 Darshan of Satguru Sahib: 5:30 PM",
-      date: "📅 Date: 15th September 2025, Monday",
-      location: "📍 Venue: Babatpur Airport, Varanasi",
+      time: "🕠 सतगुरु साहिब के दर्शन: शाम 5:30 बजे",
+      date: "📅 तारीख: 15 सितंबर 2025, सोमवार",
+      location: "📍 स्थान: बाबतपुर हवाई अड्डा, वाराणसी",
     },
     {
       id: 5,
