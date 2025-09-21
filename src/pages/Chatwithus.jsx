@@ -36,7 +36,7 @@ const ChatWithUs = () => {
 
       setTimeout(() => setSuccessMessage(""), 3000);
     } catch (error) {
-      console.error("Error!", error.message);
+      console.error("त्रुटि!", error.message);
       setSuccessMessage("❌ संदेश भेजने में विफल");
     }
   };
