@@ -7,7 +7,7 @@ const ImportantDates = () => {
     <div className="important-dates-container">
       {/* Heading at top */}
       <div className="content-section top">
-        <h2>Important Dates</h2>
+        <h2>महत्वपूर्ण तिथियाँ</h2>
       </div>
 
       {/* Photo in the middle */}
