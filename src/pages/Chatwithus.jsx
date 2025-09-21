@@ -28,7 +28,7 @@ const ChatWithUs = () => {
         mode: "no-cors",
       });
 
-      setSuccessMessage("Message sent successfully ✅");
+      setSuccessMessage("संदेश सफलतापूर्वक भेजा गया ✅");
       setName("");
       setEmail("");
       setPhone("");
@@ -37,7 +37,7 @@ const ChatWithUs = () => {
       setTimeout(() => setSuccessMessage(""), 3000);
     } catch (error) {
       console.error("Error!", error.message);
-      setSuccessMessage("❌ Failed to send message");
+      setSuccessMessage("❌ संदेश भेजने में विफल");
     }
   };
 
