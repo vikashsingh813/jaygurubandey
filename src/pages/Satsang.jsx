@@ -93,7 +93,7 @@ const Satsang = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          Anmol Rakhi <span className="arrow">→</span>
+          अनमोल राखी <span className="arrow">→</span>
         </a>
 
         <a
@@ -102,7 +102,7 @@ const Satsang = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          Hari Pagh <span className="arrow">→</span>
+          हरी पग <span className="arrow">→</span>
         </a>
         <a
           href="https://drive.google.com/file/d/your-anmol-wadi-link/view?usp=sharing"
@@ -110,7 +110,7 @@ const Satsang = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          Anmol Wadi <span className="arrow">→</span>
+          अनमोलवाणी <span className="arrow">→</span>
         </a>
       </div>
     </div>
