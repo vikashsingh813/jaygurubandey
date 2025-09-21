@@ -19,18 +19,16 @@ const About = () => {
           <img src={guruji} alt="Guruji" />
         </div>
         <div className="journey-text">
-          <h2>Guruji’s Journey</h2>
+          <h2>गुरुजी की यात्रा</h2>
           <p>
-            Guruji’s life is a sacred journey of devotion, wisdom, and service to humanity.
-            Born in simplicity and humility, his early years reflected discipline, compassion,
-            and an unshakable faith in dharma. With a heart filled with love for all beings,
-            he embraced the path of spirituality and self-realization, devoting every moment
-            to the higher purpose of guiding souls toward light and truth.
+            गुरुजी का जीवन भक्ति, ज्ञान और मानवता की सेवा की एक पवित्र यात्रा है।
+            सरलता और विनम्रता में जन्मे, उनके प्रारंभिक वर्ष अनुशासन, करुणा और धर्म में अटूट विश्वास से परिपूर्ण थे।
+            सभी प्राणियों के प्रति प्रेम से भरे हृदय के साथ, उन्होंने आध्यात्मिकता और आत्म-साक्षात्कार का मार्ग अपनाया,
+            और प्रत्येक क्षण को आत्माओं को प्रकाश और सत्य की ओर मार्गदर्शन करने के उच्च उद्देश्य को समर्पित किया।
             <br /><br />
-            Through years of meditation, study of scriptures, and divine experiences, Guruji
-            blossomed into a beacon of spiritual knowledge. His words are not merely lessons
-            but reflections of his lived wisdom — each teaching carrying the fragrance of
-            compassion, the strength of truth, and the serenity of inner peace.
+            सालों की ध्यान साधना, शास्त्रों के अध्ययन और दिव्य अनुभवों के माध्यम से, गुरुजी आध्यात्मिक ज्ञान का एक प्रकाशस्तंभ बन गए।
+            उनके शब्द केवल शिक्षा नहीं हैं, बल्कि उनके अनुभव किए हुए ज्ञान का प्रतिबिंब हैं —
+            प्रत्येक उपदेश में करुणा की खुशबू, सत्य की शक्ति और आंतरिक शांति की शांति समाहित है।
           </p>
         </div>
       </section>
