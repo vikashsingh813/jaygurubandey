@@ -47,13 +47,13 @@ const photos = [
 const Gallery = () => {
   return (
     <div className="gallery-container">
-      <h2 className="gallery-title">Gallery</h2>
+      <h2 className="gallery-title">गैलरी</h2>
       <div className="gallery-grid">
         {photos.map((photo) => (
           <div key={photo.id} className="gallery-item">
             <img src={photo.src} alt={photo.alt} className="gallery-photo" />
             <a href={photo.src} download className="download-btn">
-              Download
+              डाउनलोड
             </a>
           </div>
         ))}
