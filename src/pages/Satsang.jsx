@@ -67,7 +67,7 @@ const Satsang = () => {
 
   return (
     <div className="satsang-container">
-      <h1 className="satsang-title">Amritvani</h1>
+      <h1 className="satsang-title">अमृतवाणी</h1>
 
       {/* Video Grid */}
       <div className="video-grid">
@@ -79,7 +79,7 @@ const Satsang = () => {
               allowFullScreen
             ></iframe>
             <a href={video.linkUrl} target="_blank" rel="noopener noreferrer">
-              Watch {video.title}
+              देखें {video.title}
             </a>
           </div>
         ))}
