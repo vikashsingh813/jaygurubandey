@@ -5,7 +5,7 @@ import ashramImg from "../assets/vision.jpg"; // replace with your actual image 
 const ContactUs = () => {
   return (
     <div className="contact-container">
-      <h1 className="contact-title">Contact Us</h1>
+      <h1 className="contact-title">हमसे संपर्क करें</h1>
 
       <div className="contact-card">
         <img src={ashramImg} alt="Ashram" className="contact-image" />
