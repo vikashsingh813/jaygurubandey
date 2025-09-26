@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Satsang.css";
 
 const Satsang = () => {
@@ -65,19 +65,24 @@ const Satsang = () => {
     },
   ];
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const videosPerPage = 6;
+
+  const indexOfLastVideo = currentPage * videosPerPage;
+  const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
+  const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
+
+  const totalPages = Math.ceil(videos.length / videosPerPage);
+
   return (
     <div className="satsang-container">
       <h1 className="satsang-title">अमृतवाणी</h1>
 
-      {/* Video Grid */}
+      {/* वीडियो ग्रिड */}
       <div className="video-grid">
-        {videos.map((video) => (
+        {currentVideos.map((video) => (
           <div key={video.id} className="video-card">
-            <iframe
-              src={video.embedUrl}
-              title={video.title}
-              allowFullScreen
-            ></iframe>
+            <iframe src={video.embedUrl} title={video.title} allowFullScreen></iframe>
             <a href={video.linkUrl} target="_blank" rel="noopener noreferrer">
               देखें {video.title}
             </a>
@@ -85,7 +90,26 @@ const Satsang = () => {
         ))}
       </div>
 
-      {/* Buttons Section */}
+      {/* पृष्ठक्रमण */}
+      <div className="pagination">
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+        >
+          ← पिछला
+        </button>
+        <span className="page-circle">
+          पृष्ठ {currentPage} / {totalPages}
+        </span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
+          अगला →
+        </button>
+      </div>
+
+      {/* बटन सेक्शन */}
       <div className="satsang-buttons">
         <a
           href="https://drive.google.com/file/d/1jEzeXzcdI7qOkSmWoRUn4sJcfwgmykQk/view?usp=sharing"
@@ -102,7 +126,7 @@ const Satsang = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          हरी पग <span className="arrow">→</span>
+          हरि पग <span className="arrow">→</span>
         </a>
         <a
           href="https://drive.google.com/file/d/your-anmol-wadi-link/view?usp=sharing"
@@ -110,7 +134,7 @@ const Satsang = () => {
           rel="noopener noreferrer"
           className="btn"
         >
-          अनमोलवाणी <span className="arrow">→</span>
+          अनमोल वाडी <span className="arrow">→</span>
         </a>
       </div>
     </div>
