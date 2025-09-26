@@ -59,13 +59,6 @@ const Hero = () => {
     navigate("/important-dates"); // ✅ Redirect to Important dates page
   };
 
-  const handleDonationClick = () => {
-    window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSf-M1JdRUE_5CAYEgJqjP_bZdE6liGoNHyWAGjEImLGZIf-Pg/viewform?usp=header",
-      "_blank"
-    );
-  };
-
   const textLines = displayedText.split("\n");
 
   return (
@@ -92,11 +85,6 @@ const Hero = () => {
 
           <button className="btn announcement-btn" onClick={handleAnnouncementClick}>
             महत्वपूर्ण तिथियाँ <span className="arrow">→</span>
-          </button>
-
-          {/* ✅ Donation Button in Hindi */}
-          <button className="btn donation-btn" onClick={handleDonationClick}>
-            सहयोग करें <span className="arrow">→</span>
           </button>
         </div>
       </div>
