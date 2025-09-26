@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Blog.css";
-import blog1a from "../assets/photo4.jpg"; // first blog1 image
-import blog1b from "../assets/photo25.jpg"; // second blog1 image
-import blog2a from "../assets/photo3.jpg";  // first blog2 image
-import blog2b from "../assets/photo27.jpg"; // second blog2 image
-import blog2c from "../assets/photo28.jpg"; // third blog2 image
-import blog2d from "../assets/photo29.jpg"; // fourth blog2 image
-import blog3a from "../assets/photo5.jpg";   // blog3 image
-import blog3b from "../assets/photo26.jpg";  // blog3 image
-import blog3c from "../assets/photo30.jpg";  // blog3 image
+import blog1a from "../assets/photo4.jpg"; 
+import blog1b from "../assets/photo25.jpg"; 
+import blog2a from "../assets/photo3.jpg";  
+import blog2b from "../assets/photo27.jpg"; 
+import blog2c from "../assets/photo28.jpg"; 
+import blog2d from "../assets/photo29.jpg"; 
+import blog3a from "../assets/photo5.jpg";   
+import blog3b from "../assets/photo26.jpg";  
+import blog3c from "../assets/photo30.jpg";  
 
 const Blog = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,38 +16,18 @@ const Blog = () => {
   const [review, setReview] = useState({ name: "", message: "", rating: 0 });
   const [reviews, setReviews] = useState({});
   const [currentImages, setCurrentImages] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
 
   const posts = [
-    {
-      id: 1,
-      images: [blog1a, blog1b],
-      title: "गुरु पूर्णिमा 2025",
-      date: "6 जुलाई 2025",
-      author: "आश्रम टीम",
-      description:
-        "एक पवित्र संगम का आयोजन हुआ, जहाँ भक्तों ने गुरुजी के प्रति अपनी कृतज्ञता हृदय से प्रकट की। वातावरण भक्ति से सराबोर हो उठा जब सभी ने सत्संग में भाग लिया, भावपूर्ण भजन गाए और गहन श्रद्धा व आनंद के साथ सेवा में संलग्न हुए।",
-    },
-    {
-      id: 2,
-      images: [blog2a, blog2b, blog2c, blog2d],
-      title: "आश्रम में सत्संग",
-      date: "10 अगस्त 2025",
-      author: "आश्रम टीम",
-      description:
-        "एक गहन रिट्रीट शांत आश्रम वातावरण में आयोजित किया गया, जिसने प्रतिभागियों को योग और ध्यान का अभ्यास गहराई से करने का अवसर प्रदान किया। इस रिट्रीट में आत्म-प्रतिबिंब, आंतरिक शांति और आध्यात्मिक विकास पर विशेष जोर दिया गया, जिससे भक्त शांत परिवेश में अपने सच्चे आत्मा से पुनः जुड़ सके।",
-    },
-    {
-      id: 3,
-      images: [blog3a, blog3b, blog3c],
-      title: "भजन",
-      date: "26 जनवरी 2025",
-      author: "भक्त",
-      description:
-        "यह एक भावपूर्ण संध्या थी जिसमें भजन और सत्संग का आनंद लिया गया, जहाँ परिवार, मित्र और पड़ोसी भक्ति भाव से एकत्र हुए। उन्होंने हर्षोल्लास के साथ भजन गाए और पारंपरिक वाद्ययंत्रों की ताल पर तालियों के साथ सहभाग किया। साधारण सजावट, हृदय से की गई प्रार्थनाएँ और सामूहिक आवाज़ ने एक ऐसा वातावरण तैयार किया जो सकारात्मकता, शांति और दिव्य ऊर्जा से परिपूर्ण था, और सभी को एकजुटता, श्रद्धा और आंतरिक सामंजस्य की शक्ति की याद दिलाई।",
-    },
+    { id: 1, images: [blog1a, blog1b], title: "गुरु पूर्णिमा 2025", date: "6 जुलाई 2025", author: "आश्रम टीम", description: "इस पवित्र आयोजन में भक्तों ने पूरे दिल से गुरुजी के प्रति अपनी कृतज्ञता व्यक्त की।" },
+    { id: 2, images: [blog2a, blog2b, blog2c, blog2d], title: "आश्रम में सत्संग", date: "10 अगस्त 2025", author: "आश्रम टीम", description: "शांतिपूर्ण आश्रम वातावरण में एक गहन सत्संग आयोजन किया गया, जहाँ साधक आत्मिक अनुभवों में डूबे।" },
+    { id: 3, images: [blog3a, blog3b, blog3c], title: "भजन संध्या", date: "26 जनवरी 2025", author: "भक्तजन", description: "यह एक आत्मिक भजन और सत्संग की संध्या थी, जहाँ परिवार और मित्र मिलकर भक्ति में रमे।" },
+    { id: 4, images: [blog1a, blog1b], title: "सेवा और समाजिक कार्य", date: "15 फरवरी 2025", author: "आश्रम स्वयंसेवक", description: "भक्तों ने स्वच्छता अभियान, भोजन वितरण और अन्य सेवा गतिविधियों में भाग लिया।" },
+    { id: 5, images: [blog2a, blog2b, blog2c, blog2d], title: "ध्यान रिट्रीट", date: "20 मार्च 2025", author: "आश्रम टीम", description: "तीन दिवसीय ध्यान रिट्रीट का आयोजन किया गया ताकि साधक मौन और ध्यान में गहरी आत्मीयता अनुभव कर सकें।" },
+    { id: 6, images: [blog3a, blog3b, blog3c], title: "दीपावली महोत्सव", date: "12 नवम्बर 2025", author: "समुदाय", description: "आश्रम को दीपों और फूलों से सजाया गया और भक्तजन मिलकर दीपावली का उत्सव मनाए।" },
   ];
 
-  // Slideshow effect for ALL posts dynamically
+  // Slideshow effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImages((prev) => {
@@ -58,13 +38,24 @@ const Blog = () => {
         return updated;
       });
     }, 3000);
-
     return () => clearInterval(interval);
   }, [posts]);
 
-  const handleReadMore = (post) => {
-    setSelectedPost(post);
-    setIsModalOpen(true);
+  // Pagination logic
+  const postsPerPage = 3;
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleChange = (e) => {
@@ -98,11 +89,11 @@ const Blog = () => {
     <div className="blog-container">
       <h2 className="blog-title">🌸 आध्यात्मिक यात्रा 🌸</h2>
       <p className="blog-subtitle">
-        आध्यात्मिक यात्रा से शिक्षाएँ, कार्यक्रम और अनुभव.
+        गुरुजी की शिक्षाएँ, आयोजनों और अनुभवों का संग्रह।
       </p>
 
       <div className="blog-grid">
-        {posts.map((post) => (
+        {currentPosts.map((post) => (
           <div key={post.id} className="blog-card">
             <img
               src={post.images[currentImages[post.id] || 0]}
@@ -115,7 +106,7 @@ const Blog = () => {
 
               {reviews[post.id] && reviews[post.id].length > 0 && (
                 <div className="review-list">
-                  <h4>Devotees' Reviews:</h4>
+                  <h4>भक्तों की समीक्षा:</h4>
                   {reviews[post.id].map((r, index) => (
                     <div key={index} className="review-item">
                       <strong>{r.name}</strong> {renderStars(r.rating)}
@@ -129,30 +120,37 @@ const Blog = () => {
         ))}
       </div>
 
+      {/* Previous / Next Pagination */}
+      <div className="pagination">
+        <button onClick={handlePrev} disabled={currentPage === 1}>⬅ पिछला</button>
+        <span className="page-info">पृष्ठ {currentPage} / {totalPages}</span>
+        <button onClick={handleNext} disabled={currentPage === totalPages}>अगला ➡</button>
+      </div>
+
       {/* Modal for review */}
       {isModalOpen && selectedPost && (
         <div className="modal-overlay">
           <div className="modal">
-            <h3>Share Your Review for "{selectedPost.title}"</h3>
+            <h3>"{selectedPost.title}" के लिए अपनी समीक्षा साझा करें</h3>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="आपका नाम"
                 value={review.name}
                 onChange={handleChange}
                 required
               />
               <textarea
                 name="message"
-                placeholder="Write your review..."
+                placeholder="अपनी समीक्षा लिखें..."
                 value={review.message}
                 onChange={handleChange}
                 required
               />
               <div style={{ marginBottom: "10px" }}>
-                <strong>Rating: </strong>
-                {[1, 2, 3, 4, 5].map((i) => (
+                <strong>रेटिंग: </strong>
+                {[1,2,3,4,5].map((i) => (
                   <span
                     key={i}
                     onClick={() => handleStarClick(i)}
@@ -162,20 +160,12 @@ const Blog = () => {
                       color: i <= review.rating ? "#FFD700" : "#ccc",
                       marginRight: "5px",
                     }}
-                  >
-                    ★
-                  </span>
+                  >★</span>
                 ))}
               </div>
               <div className="modal-buttons">
-                <button type="submit" className="submit-btn">Submit</button>
-                <button
-                  type="button"
-                  className="cancel-btn"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  Cancel
-                </button>
+                <button type="submit" className="submit-btn">सबमिट</button>
+                <button type="button" className="cancel-btn" onClick={() => setIsModalOpen(false)}>रद्द करें</button>
               </div>
             </form>
           </div>
