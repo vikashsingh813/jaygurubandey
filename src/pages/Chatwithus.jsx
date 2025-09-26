@@ -13,13 +13,13 @@ const ChatWithUs = () => {
     e.preventDefault();
 
     const formURL =
-      "https://docs.google.com/forms/d/e/1FAIpQLSeuxiyEAvdTkwzSJUKYhx6BKkqR1bQvyUV2GOELQacWwBAA-g/formResponse";
+      "https://docs.google.com/forms/d/e/1FAIpQLSfu1cIFye5LFlSdq95GotbyRyMDFUIvAxu6FFTKMeK55M6SNA/formResponse";
 
     const formData = new FormData();
-    formData.append("entry.189061439", name);     // Name
-    formData.append("entry.1391401379", email);      // Email (replace with actual ID)
-    formData.append("entry.1240440170", phone);      // Phone (replace with actual ID)
-    formData.append("entry.747611041", question); // Question
+    formData.append("entry.1069862958", name); // Name
+    formData.append("entry.1854797946", email); // Email
+    formData.append("entry.511072374", phone); // Phone
+    formData.append("entry.713951500", question); // Question
 
     try {
       await fetch(formURL, {
@@ -28,7 +28,7 @@ const ChatWithUs = () => {
         mode: "no-cors",
       });
 
-      setSuccessMessage("संदेश सफलतापूर्वक भेजा गया ✅");
+      setSuccessMessage("✅ आपका संदेश सफलतापूर्वक भेज दिया गया!");
       setName("");
       setEmail("");
       setPhone("");
@@ -36,8 +36,8 @@ const ChatWithUs = () => {
 
       setTimeout(() => setSuccessMessage(""), 3000);
     } catch (error) {
-      console.error("त्रुटि!", error.message);
-      setSuccessMessage("❌ संदेश भेजने में विफल");
+      console.error("Error!", error.message);
+      setSuccessMessage("❌ संदेश भेजने में त्रुटि हुई, कृपया पुनः प्रयास करें।");
     }
   };
 
@@ -45,40 +45,52 @@ const ChatWithUs = () => {
     <div className="chatwithus-wrapper">
       {/* Left Side Image */}
       <div className="chat-image-box">
-        <img src={sideImage} alt="Chat Side" />
+        <img src={sideImage} alt="चैट साइड" />
       </div>
 
       {/* Right Side Chat Box */}
       <div className="chat-container">
         <h2 className="chat-title">हमसे चैट करें</h2>
         <form className="chat-form" onSubmit={handleSubmit}>
+          {/* Name Field - only letters & spaces */}
           <input
             type="text"
             placeholder="अपना नाम दर्ज करें"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              const onlyLetters = e.target.value.replace(/[^a-zA-Z\u0900-\u097F\s]/g, "");
+              setName(onlyLetters);
+            }}
             required
           />
+
+          {/* Email Field */}
           <input
             type="email"
             placeholder="अपना ईमेल दर्ज करें"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              const filtered = e.target.value.replace(/[^a-zA-Z0-9@._-]/g, "");
+              setEmail(filtered);
+            }}
             required
           />
+
+          {/* Phone Field - only digits */}
           <input
             type="tel"
-            placeholder="अपना फ़ोन नंबर दर्ज करें"
+            placeholder="अपना मोबाइल नंबर दर्ज करें (10 अंक)"
             value={phone}
             onChange={(e) => {
-              const onlyNums = e.target.value.replace(/\D/g, ""); // remove non-digits
+              const onlyNums = e.target.value.replace(/\D/g, "");
               setPhone(onlyNums);
             }}
-            pattern="\d{10}"         // only digits, exactly 10 if you want
+            pattern="\d{10}"
             maxLength={10}
             required
           />
 
+          {/* Question Field */}
           <textarea
             placeholder="अपना प्रश्न दर्ज करें"
             value={question}
