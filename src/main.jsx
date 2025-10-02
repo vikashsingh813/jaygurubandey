@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
+import AboutDetails from './pages/AboutDetails.jsx'
 import Satsang from './pages/Satsang.jsx'
 import Bhajan from './pages/Bhajan.jsx'
 import Program from './pages/Program.jsx'
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home/> },
       { path: 'about', element: <About/> },
+      { path: 'about/:id', element: <AboutDetails /> },
       { path: 'satsang', element: <Satsang/> },
       { path: 'bhajan', element: <Bhajan/> },
       { path: 'program', element: <Program/> },
