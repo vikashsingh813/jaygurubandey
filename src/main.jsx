@@ -9,6 +9,7 @@ import Satsang from './pages/Satsang.jsx'
 import Bhajan from './pages/Bhajan.jsx'
 import Program from './pages/Program.jsx'
 import Blog from './pages/Blog.jsx'
+import BlogDetails from './pages/BlogDetails.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Contact from './pages/Contact.jsx'
 import ChatWithUs from './pages/Chatwithus.jsx'
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: 'bhajan', element: <Bhajan/> },
       { path: 'program', element: <Program/> },
       { path: 'blog', element: <Blog/> },
+      { path: 'blog/:id', element: <BlogDetails /> },
       { path: 'gallery', element: <Gallery/> },
       { path: 'contact', element: <Contact/> },
       { path: 'chat', element: <ChatWithUs /> },
