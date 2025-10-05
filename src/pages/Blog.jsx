@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";   // ✅ Import useLocation
+import { Link, useLocation } from "react-router-dom";
 import "./Blog.css";
-import blog1a from "../assets/photo4.jpg"; 
-import blog1b from "../assets/photo25.jpg"; 
-import blog2a from "../assets/photo3.jpg";  
-import blog2b from "../assets/photo27.jpg"; 
-import blog2c from "../assets/photo28.jpg"; 
-import blog2d from "../assets/photo29.jpg"; 
-import blog3a from "../assets/photo5.jpg";   
-import blog3b from "../assets/photo26.jpg";  
-import blog3c from "../assets/photo30.jpg";  
+import blog1a from "../assets/photo4.jpg";
+import blog1b from "../assets/photo25.jpg";
+import blog2a from "../assets/photo3.jpg";
+import blog2b from "../assets/photo27.jpg";
+import blog2c from "../assets/photo28.jpg";
+import blog2d from "../assets/photo29.jpg";
+import blog3a from "../assets/photo5.jpg";
+import blog3b from "../assets/photo26.jpg";
+import blog3c from "../assets/photo30.jpg";
 
 const Blog = () => {
   const location = useLocation();
-
-  // ✅ Restore saved page from state if available
   const savedPage = location.state?.currentPage || 1;
   const [currentPage, setCurrentPage] = useState(savedPage);
   const [currentImages, setCurrentImages] = useState({});
@@ -25,16 +23,22 @@ const Blog = () => {
       images: [blog1a, blog1b],
       title: "गुरु पूर्णिमा 2025",
       date: "6 जुलाई 2025",
-      author: "आश्रम परिवार",
-      description: "इस पावन अवसर पर श्रद्धालुओं ने गुरुजी के प्रति अपनी कृतज्ञता व्यक्त की। गुरुजी ने अपने आशीर्वाद, करुणा और ज्ञान से सभी को मार्गदर्शन दिया..."
+      author: "आश्रम टीम",
+      description: [
+        "एक पवित्र समारोह का आयोजन किया गया जिसमें श्रद्धालुओं ने गुरुजी के प्रति अपनी कृतज्ञता व्यक्त की, जिन्होंने अपनी करुणा, आशीर्वाद और ज्ञान से सभी को मार्गदर्शन दिया।",
+        "कार्यक्रम में भजन, ध्यान सत्र और निष्ठा भरी अर्पणाएँ शामिल थीं, जिसने वातावरण को प्रेम और एकता से भर दिया।"
+      ]
     },
     {
       id: 2,
       images: [blog2a, blog2b, blog2c, blog2d],
       title: "आश्रम में सत्संग",
       date: "10 अगस्त 2025",
-      author: "आश्रम परिवार",
-      description: "आश्रम के शांत वातावरण में भक्ति गीत, ध्यान और गहन प्रवचनों के साथ एक विशेष सत्संग हुआ जिसने साधकों को आध्यात्मिक मार्ग पर आगे बढ़ने के लिए प्रेरित किया..."
+      author: "आश्रम टीम",
+      description: [
+        "शांत और आध्यात्मिक वातावरण में एक गहन सत्संग का आयोजन किया गया, जिसमें भजन, ध्यान और प्रवचन हुए।",
+        "इस सत्संग ने साधकों को जीवन में स्पष्टता और दृढ़ आस्था के साथ आगे बढ़ने की प्रेरणा दी।"
+      ]
     },
     {
       id: 3,
@@ -42,7 +46,10 @@ const Blog = () => {
       title: "भजन संध्या",
       date: "26 जनवरी 2025",
       author: "भक्तगण",
-      description: "भजन और सत्संग की इस संध्या में परिवार, मित्र और पड़ोसी एकत्र होकर सामूहिक भक्ति में लीन हुए। वातावरण दिव्य ऊर्जा और प्रेम से भर गया..."
+      description: [
+        "यह एक आत्मीय भजन संध्या थी, जहाँ परिवार, मित्र और पड़ोसी एकत्र होकर भक्ति भाव से भजन गा रहे थे, जिससे वातावरण में दिव्यता फैल गई।",
+        "सामूहिक भजन से उत्पन्न ऊर्जा ने सभी के मन को शांति और आनंद से भर दिया।"
+      ]
     },
     {
       id: 4,
@@ -50,27 +57,35 @@ const Blog = () => {
       title: "सेवा और समर्पण",
       date: "15 फरवरी 2025",
       author: "आश्रम स्वयंसेवक",
-      description: "भक्तों ने सफाई अभियान, भोजन वितरण और ज़रूरतमंदों की मदद जैसे सेवा कार्यों में भाग लिया। यह सभी को याद दिलाता है कि मानव सेवा ही ईश्वर सेवा है..."
+      description: [
+        "भक्तों ने सेवा कार्यों में भाग लिया जिसमें स्वच्छता अभियान, भोजन वितरण और ज़रूरतमंदों की सहायता शामिल थी।",
+        "इन कार्यों ने सभी को यह संदेश दिया कि मानव सेवा ही सच्ची ईश्वर सेवा है।"
+      ]
     },
     {
       id: 5,
       images: [blog2a, blog2b, blog2c, blog2d],
       title: "ध्यान शिविर",
       date: "20 मार्च 2025",
-      author: "आश्रम परिवार",
-      description: "तीन दिवसीय ध्यान शिविर का आयोजन हुआ, जिसमें साधकों ने मौन और शांति में गहराई से उतरकर अपने मन को शुद्ध किया और गुरुजी की उपस्थिति में आत्मिक शांति का अनुभव किया..."
+      author: "आश्रम टीम",
+      description: [
+        "तीन दिवसीय ध्यान शिविर का आयोजन किया गया ताकि साधक मौन और शांति में डूब सकें।",
+        "गुरुजी की उपस्थिति में साधकों ने मन की गहराई में उतरकर आत्मिक शांति का अनुभव किया।"
+      ]
     },
     {
       id: 6,
       images: [blog3a, blog3b, blog3c],
-      title: "प्रकाश पर्व",
+      title: "दीपों का पर्व",
       date: "12 नवम्बर 2025",
-      author: "समुदाय",
-      description: "आश्रम दीपकों और पुष्पों से सुसज्जित किया गया। सभी भक्त प्रार्थना, भजन और उत्सव में सम्मिलित हुए। वातावरण प्रेम, आनंद और आध्यात्मिकता से भर गया..."
-    },
+      author: "समाज समुदाय",
+      description: [
+        "आश्रम को दीपों और फूलों से सुंदरता से सजाया गया, जहाँ भक्तगण प्रार्थना, भजन और उत्सव के लिए एकत्र हुए।",
+        "पूरा वातावरण प्रेम, आनंद और आध्यात्मिक आनंद से भर गया।"
+      ]
+    }
   ];
 
-  // Slideshow effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImages((prev) => {
@@ -84,7 +99,6 @@ const Blog = () => {
     return () => clearInterval(interval);
   }, [posts]);
 
-  // Pagination logic
   const postsPerPage = 3;
   const totalPages = Math.ceil(posts.length / postsPerPage);
   const indexOfLastPost = currentPage * postsPerPage;
@@ -105,11 +119,11 @@ const Blog = () => {
     <div className="blog-container">
       <h2 className="blog-title">🌸 आध्यात्मिक यात्रा 🌸</h2>
       <p className="blog-subtitle">
-        शिक्षाएँ, आयोजन और अनुभव – आध्यात्मिक पथ से जुड़े हुए।
+        शिक्षाएँ, आयोजन और अनुभव — आत्मिक साधना की दिशा में।
       </p>
 
       <div className="blog-grid">
-        {currentPosts.map(post => (
+        {currentPosts.map((post) => (
           <div key={post.id} className="blog-card">
             <img
               src={post.images[currentImages[post.id] || 0]}
@@ -118,18 +132,17 @@ const Blog = () => {
             <div className="blog-content">
               <h3>{post.title}</h3>
               <p className="blog-meta">📅 {post.date} | 👤 {post.author}</p>
-              
+
               <p className="blog-desc">
-                {post.description.slice(0, 100)}...
+                {post.description[0].slice(0, 100)}...
               </p>
-              
-              {/* ✅ Pass currentPage in state */}
-              <Link 
-                to={`/blog/${post.id}`} 
-                state={{ currentPage }} 
+
+              <Link
+                to={`/blog/${post.id}`}
+                state={{ currentPage }}
                 className="read-more-btn"
               >
-                और जानें
+                और पढ़ें
               </Link>
             </div>
           </div>
