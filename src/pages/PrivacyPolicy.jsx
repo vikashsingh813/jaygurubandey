@@ -40,7 +40,7 @@ const PrivacyPolicy = () => {
           <p>
             यदि आपको इस गोपनीयता नीति के बारे में कोई प्रश्न है, तो कृपया हमें
             इस ईमेल पर संपर्क करें:
-            <span className="highlight"> support@example.com</span>.
+            <span className="highlight">jaigurubandey15@gmail.com</span>.
           </p>
         </div>
       </div>
