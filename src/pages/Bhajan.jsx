@@ -104,7 +104,7 @@ const Bhajan = () => {
           ← पिछला
         </button>
         <span className="page-circle">
-          पेज {currentPage} / {totalPages}
+          पृष्ठ {currentPage} / {totalPages}
         </span>
         <button
           onClick={() =>
