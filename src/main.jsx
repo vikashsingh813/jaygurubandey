@@ -17,6 +17,7 @@ import ChatWithUs from './pages/Chatwithus.jsx'
 import ImportantDates from './pages/ImportantDates.jsx'   // ✅ Add import
 import Contribute from './pages/Contribute.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import SatguruArti from './pages/SatguruArti.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
       { path: 'chat', element: <ChatWithUs /> },
       { path: 'important-dates', element: <ImportantDates /> },
       { path: 'contribute', element: <Contribute /> },
-      { path: 'privacy-policy', element: <PrivacyPolicy /> }, // ✅ Add route
+      { path: 'privacy-policy', element: <PrivacyPolicy /> },
+      { path: 'satguru-arti', element: <SatguruArti /> }, // ✅ Add route
     ]
   }
 ])

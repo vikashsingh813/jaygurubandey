@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Bhajan.css";
 
 const Bhajan = () => {
@@ -76,13 +77,17 @@ const Bhajan = () => {
 
   return (
     <div className="bhajan-container">
-      <h1 className="bhajan-title">भजन के पल</h1>
+      <h1 className="bhajan-title">भजन संगीतमयी क्षण</h1>
 
       {/* वीडियो ग्रिड */}
       <div className="video-grid">
         {currentVideos.map((video) => (
           <div key={video.id} className="video-card">
-            <iframe src={video.embedUrl} title={video.title} allowFullScreen></iframe>
+            <iframe
+              src={video.embedUrl}
+              title={video.title}
+              allowFullScreen
+            ></iframe>
             <a href={video.linkUrl} target="_blank" rel="noopener noreferrer">
               देखें {video.title}
             </a>
@@ -90,7 +95,7 @@ const Bhajan = () => {
         ))}
       </div>
 
-      {/* पृष्ठक्रमण */}
+      {/* पेजिनेशन */}
       <div className="pagination">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -99,10 +104,12 @@ const Bhajan = () => {
           ← पिछला
         </button>
         <span className="page-circle">
-          पृष्ठ {currentPage} / {totalPages}
+          पेज {currentPage} / {totalPages}
         </span>
         <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
           disabled={currentPage === totalPages}
         >
           अगला →
@@ -120,14 +127,9 @@ const Bhajan = () => {
           सतगुरु चालीसा <span className="arrow">→</span>
         </a>
 
-        <a
-          href="https://drive.google.com/file/d/1cC-yBNHHyyvnal3NNsQdmc1iQcaOiAp6/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn"
-        >
+        <Link to="/satguru-arti" className="btn">
           सतगुरु आरती <span className="arrow">→</span>
-        </a>
+        </Link>
 
         <a
           href="https://drive.google.com/file/d/your-bhajan-sangrah-link/view?usp=sharing"
