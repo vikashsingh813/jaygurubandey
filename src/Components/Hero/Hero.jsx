@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ScrollingText from "../../pages/ScrollingText";
 import AnnouncementBar from "../../pages/AnnouncementBar";
 import FlowerSprinkler from "../../pages/FlowerSprinkler";
+import LoadingPage from "../../pages/LoadingPage";
 import "./Hero.css";
 
 import bio from "../../assets/bio.jpg";
@@ -18,14 +19,31 @@ const Hero = () => {
   const images = [bio, hero1, hero2, photo1, photo6, photo7, photo8];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // ✅ Check sessionStorage before rendering (prevents flash)
+  const alreadyShown = sessionStorage.getItem("hasShownLoader");
+  const [loading, setLoading] = useState(!alreadyShown);
+
+  useEffect(() => {
+    if (!alreadyShown) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem("hasShownLoader", "true");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [alreadyShown]);
+
+  // ✅ Preload background images
   useEffect(() => {
     images.forEach((src) => {
       const img = new Image();
       img.src = src;
     });
-  }, []);
+  }, [images]);
 
-  const fullText = `परम संत स्वामी जय गुरुबंदे जी महाराज\nआईए ईश्वर की ओर बढ़ें और सनातन धर्म को समझें।\nयह एक आध्यात्मिक और दार्शनिक संदेश है, जो लोगों को दिव्य संबंध खोजने और सनातन धर्म के सार को समझने के लिए प्रेरित करता है।`;
+  // ✅ Typing text effect (Hindi content)
+  const fullText = `परम संत स्वामी जय गुरुबंदे जी महाराज\nआइए ईश्वर की ओर बढ़ें और सनातन धर्म को समझें।\nयह एक आध्यात्मिक और दार्शनिक संदेश है जो लोगों को ईश्वर से जुड़ने और सनातन धर्म के सार को जानने के लिए प्रेरित करता है।`;
 
   const [displayedText, setDisplayedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
@@ -53,21 +71,22 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [charIndex, fullText]);
 
-  const handleChatClick = () => {
-    navigate("/chat");
-  };
-
-  const handleAnnouncementClick = () => {
-    navigate("/important-dates"); // ✅ Redirect to Important dates page
-  };
+  const handleChatClick = () => navigate("/chat");
+  const handleAnnouncementClick = () => navigate("/important-dates");
 
   const textLines = displayedText.split("\n");
+
+  // ✅ Show loading screen only when page first opens in this tab
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
     <div>
       <AnnouncementBar />
       <div className="hero container">
-        <FlowerSprinkler /> {/* 🌸 sprinklers inside hero */}
+        <FlowerSprinkler />
+
         {images.map((img, index) => (
           <div
             key={index}
@@ -79,9 +98,21 @@ const Hero = () => {
         ))}
 
         <div className="hero-text">
-          {textLines[0] && <h2>{textLines[0]}<span className="cursor"></span></h2>}
-          {textLines[1] && <h1>{textLines[1]}<span className="cursor"></span></h1>}
-          {textLines[2] && <p>{textLines[2]}<span className="cursor"></span></p>}
+          {textLines[0] && (
+            <h2>
+              {textLines[0]} <span className="cursor"></span>
+            </h2>
+          )}
+          {textLines[1] && (
+            <h1>
+              {textLines[1]} <span className="cursor"></span>
+            </h1>
+          )}
+          {textLines[2] && (
+            <p>
+              {textLines[2]} <span className="cursor"></span>
+            </p>
+          )}
 
           <button className="btn" onClick={handleChatClick}>
             हमसे चैट करें <span className="arrow">→</span>
@@ -92,7 +123,6 @@ const Hero = () => {
           </button>
         </div>
       </div>
-
       <ScrollingText />
     </div>
   );
