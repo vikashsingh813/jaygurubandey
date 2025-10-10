@@ -26,7 +26,7 @@ const Contribute = () => {
     const { name, value } = e.target;
     let newValue = value;
 
-    if (name === "name") newValue = value.replace(/[^a-zA-Z\s\u0900-\u097F]/g, ""); // English + Hindi
+    if (name === "name") newValue = value.replace(/[^a-zA-Z\s\u0900-\u097F]/g, ""); // English + Hindi letters
     if (name === "phone") newValue = value.replace(/\D/g, "").slice(0, 10);
     if (name === "amount") {
       newValue = value.replace(/\D/g, "");
@@ -44,6 +44,7 @@ const Contribute = () => {
 
     let errors = [];
 
+    // 🧩 Validation checks
     if (!formData.name.trim()) errors.push("❌ नाम आवश्यक है।");
     if (formData.phone.length !== 10) errors.push("❌ मोबाइल नंबर 10 अंकों का होना चाहिए।");
     if (!formData.amount || parseInt(formData.amount, 10) <= 0)
@@ -53,17 +54,23 @@ const Contribute = () => {
     if (formData.transactionId.length !== 12)
       errors.push("❌ लेन-देन आईडी 12 अंकों की होनी चाहिए।");
 
+    // ✅ Check for duplicate Transaction ID in localStorage
+    const storedTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    if (storedTransactions.includes(formData.transactionId)) {
+      errors.push("❌ यह लेन-देन आईडी पहले से भेजी जा चुकी है।");
+    }
+
     if (errors.length > 0) {
       setMessage(errors.join("\n"));
       setTimeout(() => setMessage(""), 5000);
       return;
     }
 
-    // ✅ Create a hidden form and submit it
+    // ✅ Submit form to Google Form
     const form = document.createElement("form");
     form.action = GOOGLE_FORM_ACTION;
     form.method = "POST";
-    form.target = "hidden_iframe"; // avoid redirect
+    form.target = "hidden_iframe"; // prevents redirect
     form.style.display = "none";
 
     Object.entries(FORM_FIELDS).forEach(([key, entryId]) => {
@@ -78,8 +85,13 @@ const Contribute = () => {
     form.submit();
     document.body.removeChild(form);
 
+    // Save Transaction ID locally to prevent duplicates
+    storedTransactions.push(formData.transactionId);
+    localStorage.setItem("transactions", JSON.stringify(storedTransactions));
+
     setMessage("✅ आपका योगदान सफलतापूर्वक भेज दिया गया!");
     setFormData({ name: "", phone: "", amount: "", transactionId: "" });
+
     setTimeout(() => setMessage(""), 3000);
   };
 
@@ -143,7 +155,7 @@ const Contribute = () => {
         </div>
       )}
 
-      {/* Hidden iframe to avoid redirect after submit */}
+      {/* Hidden iframe to prevent redirect */}
       <iframe
         name="hidden_iframe"
         style={{ display: "none" }}
