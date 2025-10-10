@@ -7,6 +7,10 @@ const Footer = () => {
     window.location.href = '/privacy-policy'; // हमेशा पेज के ऊपर जाए
   };
 
+  const handleCommitteeClick = () => {
+    window.location.href = '/committee-members'; // समिति सदस्यों के पेज पर जाएँ
+  };
+
   return (
     <footer className="footer">
       <div className="container footer-content">
@@ -16,9 +20,16 @@ const Footer = () => {
           <span
             className="privacy-link"
             onClick={handlePrivacyClick}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', marginRight: '15px' }}
           >
             गोपनीयता नीति
+          </span>
+          <span
+            className="privacy-link"
+            onClick={handleCommitteeClick}
+            style={{ cursor: 'pointer' }}
+          >
+            समिति सदस्य
           </span>
         </div>
 
