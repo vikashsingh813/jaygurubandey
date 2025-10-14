@@ -118,14 +118,10 @@ const Bhajan = () => {
 
       {/* बटन सेक्शन */}
       <div className="bhajan-buttons">
-        <a
-          href="https://drive.google.com/file/d/1OGK0CvhcMuOLFovRhHJUB8y6ew8VmnRX/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn"
-        >
+        {/* ✅ Changed to Link for new page (same as English version) */}
+        <Link to="/satguru-chalisa" className="btn">
           सतगुरु चालीसा <span className="arrow">→</span>
-        </a>
+        </Link>
 
         <Link to="/satguru-arti" className="btn">
           सतगुरु आरती <span className="arrow">→</span>
