@@ -67,7 +67,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   justify-content: center;
-  align-items: start;
+  align-items: stretch;
   gap: 30px;
   max-width: 1150px;
   margin: 0 auto;
@@ -96,7 +96,15 @@
   transform-style: preserve-3d;
   pointer-events: auto;
   z-index: 2;
+
+  /* ✅ Equal height + keep center alignment */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* ✅ This fixes the image shifting left */
+  height: 100%;
 }
+
 
 .member-card:hover {
   transform: translateY(-10px) rotateX(6deg) rotateY(-3deg);
@@ -210,5 +218,17 @@
   .member-card { width: 100%; padding: 18px 12px; }
   .member-name { font-size: 1.2rem; }
   .member-role { font-size: 0.9rem; }
-  .pagination .page-btn { width: 80%; }
+
+  /* ✅ FIX 2: Properly align pagination buttons on phones */
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pagination .page-btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
 }
