@@ -1,0 +1,261 @@
+/* ===== SoulTwist Page Base ===== */
+.soul-page {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #fffdfc, #f3f6fb);
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+  color: #333;
+}
+
+/* ===== Title ===== */
+.soul-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #b30059;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.soul-line {
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(90deg, #b30059, #ff4081);
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+/* ===== Filters ===== */
+.soul-filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+
+/* ===== Dropdown (Refined Style) ===== */
+.soul-filters label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.soul-filters select {
+  width: 250px;
+  max-width: 90%;
+  padding: 10px 14px;
+  border-radius: 25px;
+  border: 1.8px solid #b30059;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(179, 0, 89, 0.15);
+  transition: all 0.3s ease;
+  appearance: none;
+  position: relative;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23b30059' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+.soul-filters select:hover {
+  border-color: #ff4081;
+  background-color: #fff8fb;
+  box-shadow: 0 3px 8px rgba(179, 0, 89, 0.25);
+  transform: translateY(-1px);
+}
+
+.soul-filters select:focus {
+  outline: none;
+  border-color: #ff4081;
+  box-shadow: 0 0 6px rgba(255, 64, 129, 0.4);
+}
+
+.soul-filters option {
+  background: #fff;
+  color: #333;
+  font-weight: 500;
+}
+
+.soul-filters select option[disabled] {
+  display: none;
+}
+
+/* ===== Gallery Layout ===== */
+.soul-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Card Style ===== */
+.soul-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 280px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.soul-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== Image ===== */
+.soul-image-container {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 2px solid #f0f0f0;
+  border-radius: 20px 20px 0 0;
+}
+
+.soul-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.soul-card:hover .soul-image {
+  transform: scale(1.05);
+}
+
+/* ===== Date ===== */
+.soul-date {
+  padding: 12px 10px;
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.soul-date strong {
+  color: #b30059;
+}
+
+/* ===== Download Button ===== */
+.download-button {
+  display: inline-block;
+  margin: 10px 0 15px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #b30059, #ff4081);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 40px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.download-button:hover {
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: 0 6px 12px rgba(255, 64, 129, 0.35);
+  color: #fff;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== No Images Prompt ===== */
+.no-images {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #999;
+  margin-top: 40px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .soul-card {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .soul-gallery {
+    gap: 20px;
+  }
+  .soul-card {
+    width: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .soul-filters select {
+    width: 200px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  .soul-filters {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .soul-card {
+    width: 90%;
+  }
+  .soul-title {
+    font-size: 2rem;
+  }
+  .soul-date {
+    font-size: 0.95rem;
+  }
+  .download-button {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  .soul-filters select {
+    width: 180px;
+    font-size: 0.85rem;
+    padding: 7px 10px;
+  }
+  .soul-title {
+    font-size: 1.8rem;
+  }
+  .soul-card {
+    width: 100%;
+  }
+  .download-button {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    z-index: 2;
+  }
+}
