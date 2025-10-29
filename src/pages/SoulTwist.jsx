@@ -52,7 +52,7 @@ const SoulTwist = () => {
 
   return (
     <div className="soul-page">
-      <h2 className="soul-title">आत्मिक पल SoulTwist</h2>
+      <h2 className="soul-title">आत्मिक पल</h2>
       <div className="soul-line"></div>
 
       {/* Dropdown Filters */}
