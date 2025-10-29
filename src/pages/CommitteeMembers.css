@@ -211,25 +211,30 @@
     flex-direction: column;
   }
   .committee-container .pagination .page-btn {
-  width: 100% !important;  /* ✅ Full width like screenshot */
-  max-width: 320px;        /* ✅ Balanced width */
-  height: 48px !important; /* ✅ Same height as your example */
+  width: 85% !important;
+  max-width: 320px;
+  min-height: 40px !important;
+
+  /* ✅ Padding feel like second code */
+  padding: 10px 20px !important;
+
   background: linear-gradient(135deg, #ff8c00, #ff2d55);
   color: #fff;
   font-size: 1.05rem !important;
   font-weight: 700;
   border: none;
-  border-radius: 28px;     /* ✅ Same curve */
+  border-radius: 30px; /* same rounding as your second code */
   cursor: pointer;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 !important;
-  box-shadow: 0 6px 16px rgba(255, 106, 0, 0.4);
-  transition: 0.3s ease;
+
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.35);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 55;
 }
-
-
 
   .committee-container .pagination .page-info {
     font-size: 0.85rem;
