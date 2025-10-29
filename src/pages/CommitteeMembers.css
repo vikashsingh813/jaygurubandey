@@ -103,6 +103,7 @@
   z-index: 2;
 }
 
+
 .member-card:hover {
   transform: translateY(-10px) rotateX(6deg) rotateY(-3deg);
   box-shadow: 0 12px 25px rgba(255, 106, 0, 0.3);
