@@ -88,7 +88,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; /* ✅ keeps the photo and text centered horizontally */
+  align-items: center;
   height: 100%;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
@@ -102,7 +102,6 @@
   pointer-events: auto;
   z-index: 2;
 }
-
 
 .member-card:hover {
   transform: translateY(-10px) rotateX(6deg) rotateY(-3deg);
@@ -149,52 +148,93 @@
   opacity: 0.9;
 }
 
-/* ========================= PAGINATION (SCOPED) ========================= */
+/* ========================= PAGINATION (Unified with Blog Style) ========================= */
 .committee-container .pagination {
-  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 1.2rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 50;
-  pointer-events: auto;
+  width: 100%;
 }
 
 .committee-container .pagination .page-btn {
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
   background: linear-gradient(135deg, #ff8c00, #ff2d55);
   color: #fff;
-  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.35);
-  position: relative;
-  z-index: 55;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0px 4px 12px rgba(255, 106, 0, 0.35);
 }
 
 .committee-container .pagination .page-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
   background: linear-gradient(135deg, #ffb84d, #ff6a00);
+  transform: translateY(-3px);
   box-shadow: 0 8px 16px rgba(255, 106, 0, 0.45);
 }
 
 .committee-container .pagination .page-btn:disabled {
   background: #f5e5d0;
   color: #b08b55;
-  box-shadow: none;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .committee-container .pagination .page-info {
   font-weight: 600;
   color: #6b2600;
   font-size: 1rem;
-  position: relative;
-  z-index: 55;
+}
+
+/* ===== Responsive Rules Matching Blog Pagination ===== */
+@media (max-width: 768px) {
+  .committee-container .pagination {
+    gap: 0.8rem;
+  }
+  .committee-container .pagination .page-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+  .committee-container .pagination .page-info {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .committee-container .pagination {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .committee-container .pagination .page-btn {
+  width: 100% !important;  /* ✅ Full width like screenshot */
+  max-width: 320px;        /* ✅ Balanced width */
+  height: 48px !important; /* ✅ Same height as your example */
+  background: linear-gradient(135deg, #ff8c00, #ff2d55);
+  color: #fff;
+  font-size: 1.05rem !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 28px;     /* ✅ Same curve */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  box-shadow: 0 6px 16px rgba(255, 106, 0, 0.4);
+  transition: 0.3s ease;
+}
+
+
+
+  .committee-container .pagination .page-info {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
 }
 
 /* ========================= RESPONSIVE ========================= */
@@ -211,10 +251,9 @@
   .member-photo { width: 110px; height: 110px; }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .committee-title { font-size: 1.9rem; }
   .member-card { width: 100%; padding: 18px 12px; }
   .member-name { font-size: 1.2rem; }
   .member-role { font-size: 0.9rem; }
-  .committee-container .pagination .page-btn { width: 80%; }
 }
