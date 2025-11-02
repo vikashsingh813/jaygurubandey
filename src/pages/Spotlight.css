@@ -1,0 +1,326 @@
+/* ===== Page Background ===== */
+.spotlight-page {
+  background: linear-gradient(135deg, #fff7fa, #f8faff);
+  color: #333;
+  text-align: center;
+  padding: 60px 20px;
+  font-family: "Outfit", sans-serif;
+  animation: fadeIn 0.8s ease-in;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== Header Section ===== */
+.spotlight-header h1 {
+  font-size: 2.6rem;
+  color: #b60049;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.spotlight-header .underline {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #b60049, #ff5fa2);
+  margin: 0 auto 20px;
+  border-radius: 10px;
+}
+
+.spotlight-header p {
+  color: #666;
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto 45px;
+  line-height: 1.6;
+}
+
+/* ===== Dropdown Container (Centered) ===== */
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  position: relative;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== Refined Dropdown Style (Inspired by SoulTwist) ===== */
+.spotlight-dropdown {
+  width: 250px;
+  max-width: 90%;
+  padding: 10px 14px;
+  border-radius: 25px;
+  border: 1.8px solid #b60049;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(179, 0, 89, 0.15);
+  transition: all 0.3s ease;
+  appearance: none;
+  position: relative;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23b30059' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px;
+}
+
+.spotlight-dropdown:hover {
+  border-color: #ff4081;
+  background-color: #fff8fb;
+  box-shadow: 0 3px 8px rgba(179, 0, 89, 0.25);
+  transform: translateY(-1px);
+}
+
+.spotlight-dropdown:focus {
+  outline: none;
+  border-color: #ff4081;
+  box-shadow: 0 0 6px rgba(255, 64, 129, 0.4);
+}
+
+.spotlight-dropdown option {
+  background: #fff;
+  color: #333;
+  font-weight: 500;
+}
+
+/* ===== Selection Message ===== */
+.select-message {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== Grid Layout ===== */
+.spotlight-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Card ===== */
+.spotlight-card {
+  background: linear-gradient(145deg, #ffffff, #fdf6fa);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(182, 0, 73, 0.08);
+  overflow: hidden;
+  width: 44%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(182, 0, 73, 0.18);
+}
+
+/* ===== Image ===== */
+.spotlight-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.spotlight-card:hover .spotlight-img {
+  transform: scale(1.04);
+}
+
+/* ===== Content ===== */
+.spotlight-content {
+  padding: 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.spotlight-content h2 {
+  font-size: 1.4rem;
+  color: #b60049;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.spotlight-date {
+  display: block;
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.spotlight-content p {
+  color: #555;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* ===== Button ===== */
+.read-btn {
+  display: inline-block;
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #b60049, #ff007f);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(182, 0, 73, 0.2);
+}
+
+.read-btn:hover {
+  background: linear-gradient(135deg, #ff007f, #b60049);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(182, 0, 73, 0.3);
+}
+
+/* ===== Video Styling ===== */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  background: #000;
+  border-radius: 20px 20px 0 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1100px) {
+  .spotlight-card {
+    width: 48%;
+  }
+}
+
+@media (max-width: 900px) {
+  .spotlight-card {
+    width: 85%;
+  }
+  .spotlight-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .spotlight-page {
+    padding: 50px 15px;
+  }
+  .spotlight-card {
+    width: 95%;
+  }
+  .spotlight-img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spotlight-page {
+    padding: 35px 12px;
+  }
+  .spotlight-header h1 {
+    font-size: 1.9rem;
+  }
+  .spotlight-card {
+    width: 100%;
+  }
+  .spotlight-img {
+    height: 200px;
+  }
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ===== Scoped Pagination ===== */
+.spotlight-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  gap: 10px;
+  font-family: "Outfit", sans-serif;
+}
+
+/* Common pagination button */
+.spotlight-pagination .spotlight-page-btn {
+  background: #f3f3ff;
+  border: 1px solid #ccc;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* Hover */
+.spotlight-pagination .spotlight-page-btn:hover {
+  background: #e3e3ff;
+}
+
+/* Active (current page) */
+.spotlight-pagination .spotlight-page-btn.active {
+  background: #6c63ff;
+  color: white;
+  border-color: #6c63ff;
+}
+
+/* Disabled (greyed-out) */
+.spotlight-pagination .spotlight-page-btn:disabled {
+  background: #e0dede;
+  color: #777;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Prev & Next button base style */
+.spotlight-pagination .spotlight-page-btn.prev,
+.spotlight-pagination .spotlight-page-btn.next {
+  background: #b71c1c;
+  color: white;
+  border: 1px solid #b71c1c;
+}
+
+/* Hover for Prev & Next */
+.spotlight-pagination .spotlight-page-btn.prev:hover:not(:disabled),
+.spotlight-pagination .spotlight-page-btn.next:hover:not(:disabled) {
+  background: #9a1414;
+}
+
+/* Disabled Prev & Next (greyed-out look) */
+.spotlight-pagination .spotlight-page-btn.prev:disabled,
+.spotlight-pagination .spotlight-page-btn.next:disabled {
+  background: #e0dede;
+  color: #777;
+  border-color: #ccc;
+}
