@@ -26,6 +26,7 @@ import SoulTwist from './pages/SoulTwist.jsx'
 import FAQ from './pages/FAQ.jsx'
 import IntlCenters from './pages/IntlCenters.jsx'
 import Spotlight from './pages/Spotlight.jsx';
+import DailySchedule from './pages/DailySchedule.jsx';
 import Feedback from './pages/Feedback.jsx';
 
 const router = createBrowserRouter([
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
       { path: 'faq', element: <FAQ /> },
       { path: 'intlcenters', element: <IntlCenters /> },
       { path: 'spotlight', element: <Spotlight /> },
+      { path: 'dailyschedule', element: <DailySchedule /> },
       { path: 'feedback', element: <Feedback /> },
     ],
   },
