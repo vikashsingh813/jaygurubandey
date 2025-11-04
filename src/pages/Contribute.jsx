@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Contribute.css";
-import qrImg from "../assets/scanner.jpeg";
+import qrImg from "../assets/scanner.jpg";
 
 const Contribute = () => {
   const [formData, setFormData] = useState({
