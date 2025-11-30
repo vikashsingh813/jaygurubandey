@@ -12,7 +12,7 @@ const SubmitTestimony = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const googleFormURL =
-    "https://docs.google.com/forms/d/1lteI6rpiouyCfAkZrrLl9OLLaH1b_nkU2Dnkb2BywUo/edit#responses";
+    "https://docs.google.com/forms/d/e/1FAIpQLSfcllwXd3tGuJJ1LOFzZladFB_EB1RKQ3kz_8ORLf8jm36vpg/viewform?usp=dialog";
 
   const entryName = "entry.1977001096 ";
   const entryLocation = "entry.1584391029";
