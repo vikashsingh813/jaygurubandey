@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import ashramImg from "../assets/vision.jpg"; 
-import gurujiImg from "../assets/guruji.jpg"; // 2nd card image
+import ashramImg from "../assets/vision.jpg";
+import gurujiImg from "../assets/guruji.jpg";
 
 const ContactUs = () => {
   // Array of contact cards
@@ -36,7 +36,8 @@ const ContactUs = () => {
     <div className="contact-container">
       <h1 className="contact-title">संपर्क करें</h1>
 
-      <div className="contact-card">
+      {/* key makes the card re-mount on page change → animation restarts */}
+      <div className="contact-card" key={page}>
         <img src={currentContact.image} alt="Ashram" className="contact-image" />
 
         <div className="contact-details">
@@ -66,7 +67,9 @@ const ContactUs = () => {
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>
           ⬅ पिछला
         </button>
+
         <span>पृष्ठ {page} / {totalPages}</span>
+
         <button onClick={() => setPage(page + 1)} disabled={page === totalPages}>
           अगला ➡
         </button>
