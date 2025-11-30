@@ -30,6 +30,7 @@ import DailySchedule from './pages/DailySchedule.jsx'
 import Feedback from './pages/Feedback.jsx'
 import ExploreAshram from './pages/ExploreAshram.jsx'
 import Testimonies from './pages/Testimonies.jsx'
+import SubmitTestimony from './pages/SubmitTestimony.jsx'
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,7 @@ const router = createBrowserRouter([
       { path: 'feedback', element: <Feedback /> },
       { path: 'explore', element: <ExploreAshram /> },
       { path: 'testimonies', element: <Testimonies /> },
+      { path: 'submit-testimony', element: <SubmitTestimony /> },
     ],
   },
 ])

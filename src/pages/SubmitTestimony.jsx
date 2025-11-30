@@ -1,0 +1,114 @@
+import React, { useState } from "react";
+import "./SubmitTestimony.css";
+
+const SubmitTestimony = () => {
+  const [form, setForm] = useState({
+    name: "",
+    location: "",
+    date: "",
+    testimony: ""
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const googleFormURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLScYAJdOlq2a9vG_a46-cz6UsLmDkhROgCBc3zEbUMY6MY-uBg/formResponse";
+
+  const entryName = "entry.1956407696";
+  const entryLocation = "entry.699348816";
+  const entryDate = "entry.349804285";
+  const entryTestimony = "entry.185507649";
+
+  const handleNameChange = (e) => {
+    const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
+    setForm({ ...form, name: value });
+  };
+
+  const handleLocationChange = (e) => {
+    const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
+    setForm({ ...form, location: value });
+  };
+
+  const handleTestimonyChange = (e) => {
+    setForm({ ...form, testimony: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append(entryName, form.name);
+    formData.append(entryLocation, form.location);
+    formData.append(entryDate, form.date);
+    formData.append(entryTestimony, form.testimony);
+
+    fetch(googleFormURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData,
+    });
+
+    setSubmitted(true);
+    setForm({ name: "", location: "", date: "", testimony: "" });
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 4000);
+  };
+
+  return (
+    <div className="submit-testimony-page">
+      <h1>🌸 अपनी गवाही साझा करें 🌸</h1>
+      <p>आपकी कहानी किसी ज़रूरतमंद को आशा दे सकती है।</p>
+
+      <form onSubmit={handleSubmit} className="submit-form">
+        <label>नाम</label>
+        <input
+          type="text"
+          value={form.name}
+          required
+          onChange={handleNameChange}
+          placeholder="अपना पूरा नाम दर्ज करें"
+        />
+
+        <label>स्थान</label>
+        <input
+          type="text"
+          value={form.location}
+          required
+          onChange={handleLocationChange}
+          placeholder="शहर / स्थान"
+        />
+
+        <label>तारीख़</label>
+        <input
+          type="date"
+          value={form.date}
+          required
+          onChange={(e) => setForm({ ...form, date: e.target.value })}
+        />
+
+        <label>गवाही</label>
+        <textarea
+          rows="6"
+          value={form.testimony}
+          required
+          onChange={handleTestimonyChange}
+          placeholder="अपनी गवाही यहाँ लिखें..."
+        />
+
+        <button type="submit" className="submit-testimony-btn">
+          सबमिट करें
+        </button>
+
+        {submitted && (
+          <p className="success-message">
+            🌸 धन्यवाद! आपकी गवाही सफलतापूर्वक जमा हो गई है।
+          </p>
+        )}
+      </form>
+    </div>
+  );
+};
+
+export default SubmitTestimony;
