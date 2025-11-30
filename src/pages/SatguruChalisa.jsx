@@ -104,7 +104,7 @@ const SatguruChalisa = () => {
       </div>
 
       <div className="arti-footer">
-        <p>🙏 जय गुरु बंदे साहेब सबका 🙏</p>
+        <p>🙏 जय गुरुबंदे साहेब सबका 🙏</p>
       </div>
     </div>
   );
