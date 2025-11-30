@@ -119,7 +119,7 @@ const Blog = () => {
     <div className="blog-container">
       <h2 className="blog-title">🌸 आध्यात्मिक यात्रा 🌸</h2>
       <p className="blog-subtitle">
-        शिक्षाएँ, आयोजन और अनुभव — आत्मिक साधना की दिशा में।
+        शिक्षाएँ, आयोजन और अनुभव — साधना के पथ पर चलते हुए।
       </p>
 
       <div className="blog-grid">
@@ -149,10 +149,26 @@ const Blog = () => {
         ))}
       </div>
 
+      {/* Pagination */}
       <div className="pagination">
         <button onClick={handlePrev} disabled={currentPage === 1}>⬅ पिछला</button>
         <span className="page-info">पृष्ठ {currentPage} / {totalPages}</span>
         <button onClick={handleNext} disabled={currentPage === totalPages}>अगला ➡</button>
+      </div>
+
+      {/* Bottom Navigation Buttons (added as per English file) */}
+      <div className="blog-bottom-buttons">
+        <Link to="/explore" className="blog-pill-btn">
+          🔍 आश्रम दर्शन
+        </Link>
+
+        <Link to="/testimonies" className="blog-pill-btn">
+          🔱 अनुभव कथाएँ
+        </Link>
+
+        <Link to="/dailysatsang" className="blog-pill-btn">
+          🔅 दैनिक सत्संग
+        </Link>
       </div>
     </div>
   );
