@@ -25,9 +25,10 @@ import LatestUpdates from './pages/LatestUpdates.jsx'
 import SoulTwist from './pages/SoulTwist.jsx'
 import FAQ from './pages/FAQ.jsx'
 import IntlCenters from './pages/IntlCenters.jsx'
-import Spotlight from './pages/Spotlight.jsx';
-import DailySchedule from './pages/DailySchedule.jsx';
-import Feedback from './pages/Feedback.jsx';
+import Spotlight from './pages/Spotlight.jsx'
+import DailySchedule from './pages/DailySchedule.jsx'
+import Feedback from './pages/Feedback.jsx'
+import ExploreAshram from './pages/ExploreAshram.jsx'
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
       { path: 'spotlight', element: <Spotlight /> },
       { path: 'dailyschedule', element: <DailySchedule /> },
       { path: 'feedback', element: <Feedback /> },
+      { path: 'explore', element: <ExploreAshram /> },
     ],
   },
 ])
