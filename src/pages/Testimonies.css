@@ -1,0 +1,358 @@
+/* ===== Page Background ===== */
+.testimonies-page {
+  min-height: 100vh;
+  padding: 4rem 1.5rem 5rem;
+  background: linear-gradient(135deg, #fff5f5, #fff0fa, #f5faff);
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: #333;
+  box-sizing: border-box;
+
+  /* 🔥 Page fade-in like blog */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== Intro ===== */
+.testimonies-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.testimonies-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 192, 203, 0.4);
+  color: #b30059;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+.testimonies-intro h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  color: #b71c1c;
+  margin-bottom: 0.7rem;
+  white-space: nowrap;       /* forces same line */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.testimonies-subtitle {
+  font-size: 0.98rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ===== Section labels ===== */
+.section-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #b30059;
+  margin-bottom: 0.8rem;
+}
+
+/* ===== Featured Story (Story of the Week) ===== */
+.featured-section {
+  max-width: 960px;
+  margin: 0 auto 3.5rem;
+  padding: 0 0.5rem;
+}
+
+.featured-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 105, 135, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  /* 🔥 Animate featured card coming up */
+  opacity: 0;
+  animation: fadeUp 0.8s ease-in-out forwards;
+  animation-delay: 0.15s;
+}
+
+.featured-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.featured-left h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.1rem;
+  color: #a0003c;
+}
+
+.meta {
+  font-size: 0.82rem;
+  color: #777;
+}
+
+.tag-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 192, 203, 0.25);
+  color: #a0003c;
+  font-size: 0.75rem;
+  margin-top: 5px;
+}
+
+.featured-text {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* ===== Avatar Circle (no real images needed) ===== */
+.avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: radial-gradient(circle at 30% 0, #ffe1f0, #ff8bb0);
+  color: #6b0024;
+  flex-shrink: 0;
+}
+
+.big-avatar {
+  width: 56px;
+  height: 56px;
+  font-size: 1.3rem;
+}
+
+/* ===== Grid Section (using flex so cards don't stretch each other) ===== */
+.grid-section {
+  max-width: 1100px;
+  margin: 0 auto 3.5rem;
+  padding: 0 0.5rem;
+}
+
+/* Flexbox container – fully responsive & independent heights */
+.testimonies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Cards */
+.testimony-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.3rem 1.4rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  box-sizing: border-box;
+
+  /* responsive width */
+  flex: 1 1 280px;   /* min width per card */
+  max-width: 340px; /* prevents over-stretch on big screens */
+
+  /* 🔥 Card fade + slide up like blog cards */
+  opacity: 0;
+  animation: fadeUp 0.8s ease-in-out forwards;
+}
+
+/* 🔥 Staggered animation delays for cards */
+.testimony-card:nth-child(1) { animation-delay: 0.25s; }
+.testimony-card:nth-child(2) { animation-delay: 0.35s; }
+.testimony-card:nth-child(3) { animation-delay: 0.45s; }
+.testimony-card:nth-child(4) { animation-delay: 0.55s; }
+.testimony-card:nth-child(5) { animation-delay: 0.65s; }
+.testimony-card:nth-child(6) { animation-delay: 0.75s; }
+/* You can extend nth-child if you have more cards */
+
+.testimony-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 105, 135, 0.4);
+}
+
+.testimony-card.open {
+  border-color: rgba(255, 105, 135, 0.7);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-header h3 {
+  font-size: 1.05rem;
+  color: #a0003c;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.7;
+  margin: 0.5rem 0 1.1rem;
+}
+
+/* Button */
+.card-button {
+  margin: 0 auto;             /* Centers the button */
+  display: block;             /* Allows margin auto to work */
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #b30059, #ff5f9e);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(179, 0, 89, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(179, 0, 89, 0.35);
+  background: linear-gradient(90deg, #ff5f9e, #ffb6d0);
+}
+
+/* ===== Call to Action Section ===== */
+.share-story-section {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.2rem 1.8rem;
+  background: #ffffffcc;
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+
+  /* 🔥 Optional: fade up CTA too */
+  opacity: 0;
+  animation: fadeUp 0.8s ease-in-out forwards;
+  animation-delay: 0.85s;
+}
+
+.share-story-section h2 {
+  color: #a0003c;
+  margin-bottom: 0.5rem;
+}
+
+.share-story-section p {
+  font-size: 0.94rem;
+  color: #555;
+  margin-bottom: 1.3rem;
+  line-height: 1.7;
+}
+
+.share-story-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff5f9e, #ffb6d0);
+  color: #6b0024;
+  box-shadow: 0 4px 14px rgba(255, 105, 135, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.share-story-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(255, 105, 135, 0.45);
+}
+
+/* ===== Responsive ===== */
+
+/* Large desktops – give more breathing space */
+@media (min-width: 1200px) {
+  .testimonies-page {
+    padding: 4.5rem 4rem 5rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .testimonies-page {
+    padding: 3rem 1.2rem 4rem;
+  }
+
+  .featured-card {
+    padding: 1.5rem 1.4rem;
+  }
+
+  .testimony-card {
+    flex: 1 1 260px;
+    max-width: 100%;
+  }
+}
+
+/* Small tablets & big phones */
+@media (max-width: 700px) {
+  .featured-left {
+    align-items: flex-start;
+  }
+
+  .featured-card {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .testimony-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .testimonies-page {
+    padding: 2.8rem 1rem 3.5rem;
+  }
+
+  .testimonies-intro h1 {
+    font-size: 1.3rem;     /* Makes it fit in 1 line */
+    white-space: nowrap;
+  }
+
+  .featured-card {
+    border-radius: 18px;
+  }
+
+  .share-story-section {
+    padding: 1.8rem 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .testimonies-intro h1 {
+    font-size: 1.15rem;   /* For very narrow screens */
+  }
+}
+
+/* ===== Animations (same style as blog.css) ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
