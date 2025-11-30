@@ -58,7 +58,8 @@ const Gallery = () => {
     <div className="gallery-container">
       <h2 className="gallery-title">गैलरी</h2>
 
-      <div className="gallery-grid">
+      {/* ⭐ Added key={currentPage} like English version */}
+      <div className="gallery-grid" key={currentPage}>
         {currentPhotos.map((photo) => (
           <div key={photo.id} className="gallery-item">
             <img src={photo.src} alt={photo.alt} className="gallery-photo" />
