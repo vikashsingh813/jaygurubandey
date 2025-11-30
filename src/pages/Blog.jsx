@@ -157,16 +157,20 @@ const Blog = () => {
       </div>
 
       {/* Bottom Navigation Buttons (added as per English file) */}
-      <div className="blog-bottom-buttons">
-        <Link to="/explore" className="blog-pill-btn">
+      <div
+        className="map-button-container fade-in-up"
+        style={{ display: "flex", justifyContent: "center", gap: "15px", flexWrap: "wrap" }}
+      >
+        <Link to="/explore" className="know-more-btn">
           🔍 आश्रम दर्शन
+
         </Link>
 
-        <Link to="/testimonies" className="blog-pill-btn">
+        <Link to="/testimonies" className="know-more-btn">
           🔱 अनुभव कथाएँ
         </Link>
 
-        <Link to="/dailysatsang" className="blog-pill-btn">
+        <Link to="/dailysatsang" className="know-more-btn">
           🔅 दैनिक सत्संग
         </Link>
       </div>
