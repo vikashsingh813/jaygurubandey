@@ -14,10 +14,10 @@ const SubmitTestimony = () => {
   const googleFormURL =
     "https://docs.google.com/forms/d/e/1FAIpQLSfcllwXd3tGuJJ1LOFzZladFB_EB1RKQ3kz_8ORLf8jm36vpg/formResponse";
 
-  const entryName = "entry.1977001096";
-  const entryLocation = "entry.1584391029";
-  const entryDate = "entry.2113385227";
-  const entryTestimony = "entry.892584573";
+  const entryName = "entry.555167835";
+  const entryLocation = "entry.187690684";
+  const entryDate = "entry.1369967811";
+  const entryTestimony = "entry.1077217407";
 
   const handleNameChange = (e) => {
     const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
