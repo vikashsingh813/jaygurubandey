@@ -12,12 +12,12 @@ const SubmitTestimony = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const googleFormURL =
-    "https://docs.google.com/forms/d/e/1FAIpQLScYAJdOlq2a9vG_a46-cz6UsLmDkhROgCBc3zEbUMY6MY-uBg/formResponse";
+    "https://docs.google.com/forms/d/1lteI6rpiouyCfAkZrrLl9OLLaH1b_nkU2Dnkb2BywUo/edit#responses";
 
-  const entryName = "entry.1956407696";
-  const entryLocation = "entry.699348816";
-  const entryDate = "entry.349804285";
-  const entryTestimony = "entry.185507649";
+  const entryName = "entry.1977001096 ";
+  const entryLocation = "entry.1584391029";
+  const entryDate = "entry.2113385227";
+  const entryTestimony = "entry.892584573";
 
   const handleNameChange = (e) => {
     const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
