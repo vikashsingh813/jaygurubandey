@@ -33,6 +33,7 @@ import Testimonies from './pages/Testimonies.jsx'
 import SubmitTestimony from './pages/SubmitTestimony.jsx'
 import DailySatsang from './pages/DailySatsang.jsx'
 import NotFound from './pages/NotFound.jsx'
+import StayConnected from './pages/StayConnected.jsx'
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,7 @@ const router = createBrowserRouter([
       { path: 'testimonies', element: <Testimonies /> },
       { path: 'submit-testimony', element: <SubmitTestimony /> },
       { path: 'dailysatsang', element: <DailySatsang /> },
+      { path: 'stayconnected', element: <StayConnected /> },
     ],
   },
   { path: '*', element: <NotFound /> },
