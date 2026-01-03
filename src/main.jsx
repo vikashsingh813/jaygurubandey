@@ -32,6 +32,7 @@ import ExploreAshram from './pages/ExploreAshram.jsx'
 import Testimonies from './pages/Testimonies.jsx'
 import SubmitTestimony from './pages/SubmitTestimony.jsx'
 import DailySatsang from './pages/DailySatsang.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
       { path: 'dailysatsang', element: <DailySatsang /> },
     ],
   },
+  { path: '*', element: <NotFound /> },
 ])
 
 createRoot(document.getElementById('root')).render(
