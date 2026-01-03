@@ -279,3 +279,123 @@
     min-width: 45px;
   }
 }
+
+
+/* ===== STAY CONNECTED BUTTON ===== */
+
+.stay-connected-btn {
+  padding: 12px 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  /* uses same accent colors, but blended a bit darker to overlap with bg */
+  background: linear-gradient(120deg, #1f2a40, #243b55, #00d9ff);
+  border: 1px solid rgba(0, 217, 255, 0.6);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease,
+              opacity 0.3s ease,
+              box-shadow 0.3s ease,
+              background 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  min-width: 220px;
+  text-align: center;
+}
+
+.stay-connected-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  opacity: 0.98;
+  background: linear-gradient(120deg, #243b55, #00d9ff, #6a11cb);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* active / click feedback */
+.stay-connected-btn:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.45);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .stay-connected-wrapper {
+    margin-top: 24px;
+  }
+
+  .stay-connected-btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stay-connected-wrapper {
+    margin-top: 20px;
+  }
+
+  .stay-connected-btn {
+    padding: 9px 20px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+/* ===== TWO BUTTONS SIDE BY SIDE ===== */
+/* ===== CONTACT PAGE — 3 → 2+1 → STACKED BUTTON LAYOUT ===== */
+
+/* BIG SCREENS — 3 in a row */
+.stay-buttons-row {
+  margin-top: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));  /* 3 buttons */
+  gap: 24px;
+  justify-items: center;
+  opacity: 0;
+  animation: dropFade 1s ease forwards;
+  animation-delay: 2s;
+  box-sizing: border-box;
+}
+
+/* Every button inherits Blog button size rules */
+.stay-buttons-row > * {
+  width: 100%;
+  max-width: 240px;   
+  min-width: 180px;   
+  padding: 10px 24px; 
+  border-radius: 50px;
+  font-size: 0.9rem;   
+  font-weight: 600;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+/* MEDIUM SCREENS — 2 + 1 layout */
+@media (max-width: 1024px) {
+  .stay-buttons-row {
+    grid-template-columns: repeat(2, 1fr);    /* 2 buttons */
+  }
+
+  /* 3rd button spans across the whole row */
+  .stay-buttons-row > *:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+/* MOBILE — 3 stacked, centered */
+@media (max-width: 480px) {
+  .stay-buttons-row {
+    grid-template-columns: 1fr;   /* stack all buttons */
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .stay-buttons-row > * {
+    width: 100%;
+    max-width: 200px;    /* same as blog look */
+    min-width: 0;
+  }
+}

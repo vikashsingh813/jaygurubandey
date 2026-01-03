@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Contact.css";
 import ashramImg from "../assets/vision.jpg";
 import gurujiImg from "../assets/guruji.jpg";
 
 const ContactUs = () => {
-  // Array of contact cards
+  const navigate = useNavigate();
+
   const contacts = [
     {
       id: 1,
@@ -26,17 +28,14 @@ const ContactUs = () => {
     }
   ];
 
-  // Pagination
   const [page, setPage] = useState(1);
   const totalPages = contacts.length;
-
   const currentContact = contacts[page - 1];
 
   return (
     <div className="contact-container">
       <h1 className="contact-title">संपर्क करें</h1>
 
-      {/* key makes the card re-mount on page change → animation restarts */}
       <div className="contact-card" key={page}>
         <img src={currentContact.image} alt="Ashram" className="contact-image" />
 
@@ -62,16 +61,38 @@ const ContactUs = () => {
         </div>
       </div>
 
-      {/* Pagination Controls */}
+      {/* Pagination */}
       <div className="pagination">
         <button onClick={() => setPage(page - 1)} disabled={page === 1}>
           ⬅ पिछला
         </button>
-
         <span>पृष्ठ {page} / {totalPages}</span>
-
         <button onClick={() => setPage(page + 1)} disabled={page === totalPages}>
           अगला ➡
+        </button>
+      </div>
+
+      {/* ⭐ EXTRA BUTTONS (from English site) ⭐ */}
+      <div className="stay-buttons-row">
+        <button
+          className="stay-connected-btn"
+          onClick={() => navigate("/stayconnected")}
+        >
+          🙏 जुड़े रहें
+        </button>
+
+        <button
+          className="stay-connected-btn"
+          onClick={() => navigate("/beforeyouvisit")}
+        >
+          📘 यात्रा से पहले
+        </button>
+
+        <button
+          className="stay-connected-btn"
+          onClick={() => navigate("/divine")}
+        >
+          ✨ दिव्य क्षण
         </button>
       </div>
     </div>
