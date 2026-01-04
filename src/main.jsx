@@ -39,6 +39,7 @@ import DivineMoments from './pages/DivineMoments.jsx'
 import QuickStart from './pages/QuickStart.jsx'
 import LiveNow from './pages/LiveNow.jsx'
 import AshramVision from './pages/AshramVision.jsx'
+import LatestAmritvani from './pages/LatestAmritvani.jsx'
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,7 @@ const router = createBrowserRouter([
       { path: 'quickstart', element: <QuickStart /> },
       { path: 'live-now', element: <LiveNow /> },
       { path: 'ashram-vision', element: <AshramVision /> },
+      { path: 'latest-amritvani', element: <LatestAmritvani /> },
     ],
   },
   { path: '*', element: <NotFound /> },
