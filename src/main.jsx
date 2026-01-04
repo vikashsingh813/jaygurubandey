@@ -37,6 +37,7 @@ import StayConnected from './pages/StayConnected.jsx'
 import AshramRules from './pages/Beforeyouvisit.jsx'
 import DivineMoments from './pages/DivineMoments.jsx'
 import QuickStart from './pages/QuickStart.jsx'
+import LiveNow from './pages/LiveNow.jsx'
 
 
 const router = createBrowserRouter([
@@ -77,6 +78,7 @@ const router = createBrowserRouter([
       { path: 'beforeyouvisit', element: <AshramRules /> },
       { path: 'divine', element: <DivineMoments /> },
       { path: 'quickstart', element: <QuickStart /> },
+      { path: 'live-now', element: <LiveNow /> },
     ],
   },
   { path: '*', element: <NotFound /> },
