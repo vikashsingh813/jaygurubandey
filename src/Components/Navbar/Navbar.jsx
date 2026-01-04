@@ -241,7 +241,7 @@ const Navbar = () => {
                 <button onClick={() => handleNavClick('/blog')}>सभी ब्लॉग</button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('/testimonies')}>अनुभव साझा</button>
+                <button onClick={() => handleNavClick('/testimonies')}>अनुभव कथाएँ</button>
               </li>
               <li>
                 <button onClick={() => handleNavClick('/spotlight')}>विशेष झलक</button>
