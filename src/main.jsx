@@ -41,6 +41,7 @@ import LiveNow from './pages/LiveNow.jsx'
 import AshramVision from './pages/AshramVision.jsx'
 import LatestAmritvani from './pages/LatestAmritvani.jsx'
 import DailyTeachings from './pages/DailyTeachings.jsx'
+import LatestBhajan from './pages/LatestBhajan.jsx'
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,7 @@ const router = createBrowserRouter([
       { path: 'ashram-vision', element: <AshramVision /> },
       { path: 'latest-amritvani', element: <LatestAmritvani /> },
       { path: "daily-teachings", element: <DailyTeachings /> },
+      { path: 'latest-bhajan', element: <LatestBhajan /> },
     ],
   },
   { path: '*', element: <NotFound /> },
