@@ -11,8 +11,8 @@ body {
 /* ========================= Navbar Container ========================= */
 nav {
   width: 100%;
-  background: linear-gradient(90deg, #1a1a1a, #000);
-  color: #fff;
+  background: linear-gradient(90deg, #0a1a2f, #020b1a);
+  color: #ffffff;
   padding: 8px 20px;
   display: flex;
   align-items: center;
@@ -20,9 +20,11 @@ nav {
   position: relative;
   z-index: 10;
   flex-wrap: wrap;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-  border-bottom: 2px solid #ff9800;
+
+  border-bottom: 2px solid #f5c542;
+  box-shadow: 0 4px 20px rgba(245, 197, 66, 0.35);
 }
+
 
 /* Logo - stays left */
 nav img.logo {
@@ -70,13 +72,28 @@ nav ul li a {
   overflow: hidden;
 }
 
+/* Buttons (for React <button> elements) */
+nav ul li button {
+  text-decoration: none;
+  color: #fff;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+
 /* Glow Hover Effect */
 nav ul li a:hover {
-  background: linear-gradient(90deg, #ff9800, #ff5722);
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255, 152, 0, 0.7);
+  background: linear-gradient(90deg, #f5c542, #ffb703);
+  color: #1a1a1a;
+  box-shadow: 0 0 20px rgba(245, 197, 66, 0.9);
   transform: translateY(-2px);
 }
+
 
 /* ========================= Circle Image ========================= */
 .circle-img {
@@ -84,13 +101,13 @@ nav ul li a:hover {
   height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #ff9800;
+  border: 3px solid #f5c542;
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
 .circle-img:hover {
-  border-color: #ff5722;
+  border-color: #f5c542;
   transform: scale(1.1);
 }
 
@@ -117,27 +134,12 @@ nav ul li a:hover {
   display: block;
   height: 4px;
   width: 100%;
-  background: #ff9800;
+  background: #f5c542;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
-/* Hamburger animation when open */
-.menu.open {
-  transform: translateX(8px); /* move slightly right when menu open */
-}
 
-.menu.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
 
 /* ========================= Mobile / Tablet View ========================= */
 @media (max-width: 1286px) {
@@ -150,7 +152,7 @@ nav ul li a:hover {
     top: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(160deg, #111, #000);
+    background: linear-gradient(160deg, #0a1a2f, #020b1a);
     width: 240px;
     padding-top: 90px;
     display: flex;
@@ -184,7 +186,7 @@ nav ul li a:hover {
     margin: 0 auto;
     border-radius: 25px;
     font-size: 16px;
-    border: 2px solid #ff9800;
+    border: 2px solid #f5c542;
     background: transparent;
   }
 
@@ -248,4 +250,101 @@ nav img.logo {
   transform-style: preserve-3d;
   border-radius: 50%;
   backface-visibility: visible;
+}
+
+/* ========================= DROPDOWN (FINAL FIX) ========================= */
+
+nav {
+  overflow: visible;
+}
+
+.dropdown {
+  position: relative;
+  z-index: 999;
+}
+
+/* Dropdown box */
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #0a1a2f, #020b1a);
+  border: 2px solid #f5c542;
+  border-radius: 14px;
+  min-width: 210px;
+  padding: 10px 0;
+
+  /* IMPORTANT */
+  display: flex;              /* React controls visibility */
+  flex-direction: column;
+  z-index: 9999;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+/* Dropdown buttons */
+.dropdown-menu button {
+  width: 100%;
+  padding: 12px 18px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.dropdown-menu button:hover {
+  background: linear-gradient(90deg, #f5c542, #ffb703);
+}
+
+/* ========================= MOBILE DROPDOWN ========================= */
+@media (max-width: 1286px) {
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 6px;
+    border-radius: 12px;
+  }
+}
+
+/* ===== FIX ABOUT & AMRITVANI BUTTON SIZE ===== */
+.dropdown > button {
+  height: 43px;                 /* same height as other buttons */
+  padding: 6px 14px;            /* controls size */
+  border-radius: 8px;
+
+  display: inline-flex;         /* center content */
+  flex-direction: column;       /* text on top, arrow below */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1.1;
+  gap: 2px;                     /* space between text & arrow */
+}
+
+/* Arrow size fix */
+.dropdown > button span,
+.dropdown > button::after {
+  font-size: 10px;
+}
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 14;
+}
+.menu.open {
+  opacity: 0;
+  pointer-events: none;
 }
