@@ -44,6 +44,7 @@ import DailyTeachings from './pages/DailyTeachings.jsx'
 import LatestBhajan from './pages/LatestBhajan.jsx'
 import UpcomingPrograms from './pages/UpcomingPrograms.jsx'
 import SpecialEvents from './pages/SpecialEvents.jsx'
+import AshramLife from './pages/AshramLife.jsx'
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,7 @@ const router = createBrowserRouter([
       { path: 'latest-bhajan', element: <LatestBhajan /> },
       { path: 'upcoming-programs', element: <UpcomingPrograms /> },
       { path: 'special-events', element: <SpecialEvents /> },
+      { path: 'ashram-life', element: <AshramLife /> },
     ],
   },
   { path: '*', element: <NotFound /> },
