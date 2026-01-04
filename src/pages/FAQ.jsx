@@ -45,6 +45,7 @@ const FAQ = () => {
   return (
     <div className="faq-page">
       <h2 className="faq-title">अक्सर पूछे जाने वाले प्रश्न</h2>
+
       <div className="faq-container">
         {faqs.map((faq, index) => (
           <div
@@ -58,18 +59,26 @@ const FAQ = () => {
                 {openIndex === index ? "–" : "＋"}
               </span>
             </div>
+
             <div className="faq-answer">{faq.answer}</div>
           </div>
         ))}
       </div>
 
-      {/* ===== Feedback Button ===== */}
+      {/* ===== TWO BUTTONS (LEFT + RIGHT ALIGNED) ===== */}
       <div className="feedback-button-container">
         <button
           className="feedback-button"
           onClick={() => navigate("/feedback")}
         >
-          भक्तों की प्रतिक्रिया
+          🙏💬 भक्तों की प्रतिक्रिया
+        </button>
+
+        <button
+          className="quickstart-button"
+          onClick={() => navigate("/quickstart")}
+        >
+          🚀 त्वरित शुरुआत
         </button>
       </div>
     </div>
