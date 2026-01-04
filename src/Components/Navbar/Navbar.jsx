@@ -87,7 +87,7 @@ const Navbar = () => {
                 <button onClick={() => handleNavClick('/')}>मुख्य होम</button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('/latest-updates')}>नवीनतम अपडेट</button>
+                <button onClick={() => handleNavClick('/latest-updates')}>ताज़ा अपडेट्स</button>
               </li>
               <li>
                 <button onClick={() => handleNavClick('/dailyschedule')}>दैनिक कार्यक्रम</button>
