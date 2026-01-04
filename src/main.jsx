@@ -38,7 +38,7 @@ import AshramRules from './pages/Beforeyouvisit.jsx'
 import DivineMoments from './pages/DivineMoments.jsx'
 import QuickStart from './pages/QuickStart.jsx'
 import LiveNow from './pages/LiveNow.jsx'
-
+import AshramVision from './pages/AshramVision.jsx'
 
 const router = createBrowserRouter([
   {
@@ -79,6 +79,7 @@ const router = createBrowserRouter([
       { path: 'divine', element: <DivineMoments /> },
       { path: 'quickstart', element: <QuickStart /> },
       { path: 'live-now', element: <LiveNow /> },
+      { path: 'ashram-vision', element: <AshramVision /> },
     ],
   },
   { path: '*', element: <NotFound /> },
