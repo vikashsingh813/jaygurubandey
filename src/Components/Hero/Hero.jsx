@@ -19,7 +19,7 @@ const Hero = () => {
   const images = [bio, hero1, hero2, photo1, photo6, photo7, photo8];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // ✅ Check sessionStorage before rendering (prevents flash)
+  // ✅ Loader logic (same as English)
   const alreadyShown = sessionStorage.getItem("hasShownLoader");
   const [loading, setLoading] = useState(!alreadyShown);
 
@@ -34,7 +34,7 @@ const Hero = () => {
     }
   }, [alreadyShown]);
 
-  // ✅ Preload background images
+  // ✅ Preload images
   useEffect(() => {
     images.forEach((src) => {
       const img = new Image();
@@ -42,19 +42,23 @@ const Hero = () => {
     });
   }, [images]);
 
-  // ✅ Typing text effect (Hindi content)
-  const fullText = `परम संत स्वामी जय गुरुबंदे जी महाराज\nआइए ईश्वर की ओर बढ़ें और सनातन धर्म को समझें।\nयह एक आध्यात्मिक और दार्शनिक संदेश है जो लोगों को ईश्वर से जुड़ने और सनातन धर्म के सार को जानने के लिए प्रेरित करता है।`;
+  // ✅ Hindi typing text
+  const fullText = `परम संत स्वामी जय गुरुबंदे जी महाराज
+आइए ईश्वर की ओर बढ़ें और सनातन धर्म को समझें।
+यह एक आध्यात्मिक संदेश है जो आत्मिक शांति और दिव्यता की ओर मार्गदर्शन करता है।`;
 
   const [displayedText, setDisplayedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
 
+  // ✅ Background slider
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // ✅ Typing effect
   useEffect(() => {
     const typingSpeed = 50;
     const timeout = setTimeout(() => {
@@ -68,15 +72,12 @@ const Hero = () => {
         }, 2000);
       }
     }, typingSpeed);
+
     return () => clearTimeout(timeout);
   }, [charIndex, fullText]);
 
-  const handleChatClick = () => navigate("/chat");
-  const handleAnnouncementClick = () => navigate("/important-dates");
-
   const textLines = displayedText.split("\n");
 
-  // ✅ Show loading screen only when page first opens in this tab
   if (loading) {
     return <LoadingPage />;
   }
@@ -84,6 +85,7 @@ const Hero = () => {
   return (
     <div>
       <AnnouncementBar />
+
       <div className="hero container">
         <FlowerSprinkler />
 
@@ -113,16 +115,9 @@ const Hero = () => {
               {textLines[2]} <span className="cursor"></span>
             </p>
           )}
-
-          <button className="btn" onClick={handleChatClick}>
-            हमसे चैट करें <span className="arrow">→</span>
-          </button>
-
-          <button className="btn announcement-btn" onClick={handleAnnouncementClick}>
-            महत्वपूर्ण तिथियाँ <span className="arrow">→</span>
-          </button>
         </div>
       </div>
+
       <ScrollingText />
     </div>
   );
