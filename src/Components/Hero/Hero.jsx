@@ -329,7 +329,7 @@ const Hero = () => {
     <div className="social-box">
       <div className="social-title">
         <FaYoutube className="social-icon youtube" />
-        <span>YouTube चैनल</span>
+        <span>यूट्यूब चैनल</span>
       </div>
 
       <ul>
