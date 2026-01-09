@@ -105,7 +105,7 @@ const Subscribe = () => {
                             rel="noopener noreferrer"
                             className="telegram-btn"
                         >
-                            👉 Telegram ग्रुप जॉइन करें
+                            👉 टेलीग्राम ग्रुप जॉइन करें
                         </a>
 
                         <button
