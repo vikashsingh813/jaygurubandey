@@ -1,15 +1,18 @@
 import { useState } from "react";
 import "./Subscribe.css";
-import guruji from "../assets/guruji.jpg"; // adjust path if needed
+import guruji from "../assets/guruji.jpg";
+
+// ✅ Telegram Group Link
+const TELEGRAM_GROUP_LINK = "https://t.me/+kRGL_XXEAS05ZDA1";
 
 const Subscribe = () => {
-    const [email, setEmail] = useState("");
+    const [number, setNumber] = useState("");
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
 
     const showMessage = (text) => {
         setMessage(text);
-        setEmail("");
         setTimeout(() => setMessage(""), 3000);
     };
 
@@ -17,9 +20,10 @@ const Subscribe = () => {
         e.preventDefault();
         if (loading) return;
 
-        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(email)) {
-            showMessage("❌ कृपया एक मान्य ईमेल पता दर्ज करें।");
+        // 🇮🇳 Indian mobile number validation
+        const numberRegex = /^[6-9][0-9]{9}$/;
+        if (!numberRegex.test(number)) {
+            showMessage("❌ कृपया एक मान्य 10 अंकों का मोबाइल नंबर दर्ज करें।");
             return;
         }
 
@@ -29,15 +33,24 @@ const Subscribe = () => {
             "https://script.google.com/macros/s/AKfycbyZ7ZL-dlhhLTt2K9nKQYCzD99bekIVa3kcl2ar3Xsg5VqVu_q03UpoOsU2ndVuQGqr/exec",
             {
                 method: "POST",
-                body: new URLSearchParams({ email }),
+                body: new URLSearchParams({
+                    number,
+                }),
             }
         )
             .then((res) => res.text())
             .then((text) => {
                 if (text === "Already subscribed") {
-                    showMessage("⚠️ यह ईमेल पहले से सब्सक्राइब है।");
+                    showMessage("⚠️ यह मोबाइल नंबर पहले से सब्सक्राइब है।");
+                    setNumber("");
                 } else {
                     showMessage("✅ आप सफलतापूर्वक सब्सक्राइब हो गए हैं!");
+                    setNumber("");
+
+                    // 🕒 Show popup after 2 seconds
+                    setTimeout(() => {
+                        setShowPopup(true);
+                    }, 2000);
                 }
             })
             .catch(() => {
@@ -56,19 +69,18 @@ const Subscribe = () => {
                 </div>
 
                 <h2>🔔 मुझे सूचित करें</h2>
-                <p>
-                    जब भी हम कुछ नया साझा करें, उसकी सूचना प्राप्त करें
-                </p>
+                <p>जब भी हम कुछ नया साझा करें, सूचना प्राप्त करें</p>
 
                 <form onSubmit={handleSubmit} className="subscribe-form">
                     <input
-                        type="email"
-                        placeholder="अपना ईमेल दर्ज करें"
+                        type="tel"
+                        placeholder="अपना मोबाइल नंबर दर्ज करें"
                         required
-                        value={email}
+                        value={number}
                         onChange={(e) =>
-                            setEmail(e.target.value.replace(/[^a-zA-Z0-9@._-]/g, ""))
+                            setNumber(e.target.value.replace(/[^0-9]/g, ""))
                         }
+                        maxLength={10}
                         disabled={loading}
                     />
 
@@ -79,6 +91,32 @@ const Subscribe = () => {
 
                 {message && <span className="message">{message}</span>}
             </div>
+
+            {/* 🟢 SUCCESS POPUP */}
+            {showPopup && (
+                <div className="popup-overlay">
+                    <div className="popup-box">
+                        <h3>🙏 स्वागत है</h3>
+                        <p>आप सफलतापूर्वक सब्सक्राइब हो गए हैं</p>
+
+                        <a
+                            href={TELEGRAM_GROUP_LINK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="telegram-btn"
+                        >
+                            👉 Telegram ग्रुप जॉइन करें
+                        </a>
+
+                        <button
+                            className="close-btn"
+                            onClick={() => setShowPopup(false)}
+                        >
+                            बंद करें
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
