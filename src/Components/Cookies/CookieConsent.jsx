@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./CookieConsent.css";
 
+/* ===== Cookie Helpers ===== */
+const setCookie = (name, value, days) => {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(
+    value
+  )}; expires=${expires}; path=/; SameSite=Lax`;
+};
+
+const getCookie = (name) => {
+  return document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(name + "="))
+    ?.split("=")[1];
+};
+
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -10,39 +25,47 @@ const CookieConsent = () => {
     marketing: false,
   });
 
+  /* ===== Check cookie on load ===== */
   useEffect(() => {
-    const consent = localStorage.getItem("cookieConsent");
+    const consent = getCookie("cookieConsent");
     if (!consent) setVisible(true);
   }, []);
 
+  /* ===== Accept / Reject ===== */
   const handleConsent = (choice) => {
     if (choice === "accept") {
-      localStorage.setItem("cookieConsent", "accepted");
-      localStorage.setItem(
+      setCookie("cookieConsent", "accepted", 365);
+      setCookie(
         "cookiePreferences",
         JSON.stringify({
           functional: true,
           analytics: true,
           marketing: true,
-        })
+        }),
+        365
       );
-    } else if (choice === "reject") {
-      localStorage.setItem("cookieConsent", "rejected");
-      localStorage.setItem(
+    }
+
+    if (choice === "reject") {
+      setCookie("cookieConsent", "rejected", 365);
+      setCookie(
         "cookiePreferences",
         JSON.stringify({
           functional: true,
           analytics: false,
           marketing: false,
-        })
+        }),
+        365
       );
     }
+
     setVisible(false);
   };
 
+  /* ===== Save Custom Preferences ===== */
   const handleSavePreferences = () => {
-    localStorage.setItem("cookieConsent", "customised");
-    localStorage.setItem("cookiePreferences", JSON.stringify(preferences));
+    setCookie("cookieConsent", "customised", 365);
+    setCookie("cookiePreferences", JSON.stringify(preferences), 365);
     setShowModal(false);
     setVisible(false);
   };
@@ -63,19 +86,27 @@ const CookieConsent = () => {
         <div className="cookie-content">
           <h3>हम आपकी गोपनीयता का सम्मान करते हैं</h3>
           <p>
-            हम आपके ब्राउज़िंग अनुभव को बेहतर बनाने, व्यक्तिगत विज्ञापन या
-            सामग्री प्रदान करने और हमारी वेबसाइट ट्रैफ़िक का विश्लेषण करने के लिए
-            कुकीज़ का उपयोग करते हैं। "सभी स्वीकार करें" पर क्लिक करके, आप हमारे
-            कुकी उपयोग की सहमति देते हैं।
+            हम आपके ब्राउज़िंग अनुभव को बेहतर बनाने, वेबसाइट ट्रैफ़िक का विश्लेषण
+            करने और सामग्री को वैयक्तिकृत करने के लिए कुकीज़ का उपयोग करते हैं।
+            आप किसी भी समय अपनी प्राथमिकताएँ बदल सकते हैं।
           </p>
           <div className="cookie-buttons">
-            <button className="customise-btn" onClick={() => setShowModal(true)}>
+            <button
+              className="customise-btn"
+              onClick={() => setShowModal(true)}
+            >
               अनुकूलित करें
             </button>
-            <button className="reject-btn" onClick={() => handleConsent("reject")}>
+            <button
+              className="reject-btn"
+              onClick={() => handleConsent("reject")}
+            >
               सभी अस्वीकार करें
             </button>
-            <button className="accept-btn" onClick={() => handleConsent("accept")}>
+            <button
+              className="accept-btn"
+              onClick={() => handleConsent("accept")}
+            >
               सभी स्वीकार करें
             </button>
           </div>
@@ -87,21 +118,13 @@ const CookieConsent = () => {
         <div className="cookie-modal-overlay">
           <div className="cookie-modal">
             <h3>अपनी कुकी प्राथमिकताएँ अनुकूलित करें</h3>
-            <p>चुनें कि आप कौन-सी प्रकार की कुकीज़ की अनुमति देना चाहते हैं:</p>
+            <p>चुनें कि आप किन प्रकार की कुकीज़ की अनुमति देना चाहते हैं:</p>
 
             <div className="cookie-option">
               <label>
-                <input
-                  type="checkbox"
-                  checked={preferences.functional}
-                  disabled
-                  readOnly
-                />
+                <input type="checkbox" checked disabled readOnly />
                 <span>फ़ंक्शनल कुकीज़ (आवश्यक)</span>
               </label>
-              <p className="desc">
-                ये कुकीज़ वेबसाइट को सही तरीके से काम करने के लिए आवश्यक हैं।
-              </p>
             </div>
 
             <div className="cookie-option">
@@ -113,9 +136,6 @@ const CookieConsent = () => {
                 />
                 <span>एनालिटिक्स कुकीज़</span>
               </label>
-              <p className="desc">
-                ये हमें यह समझने में मदद करती हैं कि आप हमारी साइट का उपयोग कैसे करते हैं ताकि हम इसे बेहतर बना सकें।
-              </p>
             </div>
 
             <div className="cookie-option">
@@ -127,13 +147,13 @@ const CookieConsent = () => {
                 />
                 <span>मार्केटिंग कुकीज़</span>
               </label>
-              <p className="desc">
-                इनका उपयोग व्यक्तिगत विज्ञापन और सामग्री दिखाने के लिए किया जाता है।
-              </p>
             </div>
 
             <div className="modal-buttons">
-              <button className="cancel-btn" onClick={() => setShowModal(false)}>
+              <button
+                className="cancel-btn"
+                onClick={() => setShowModal(false)}
+              >
                 रद्द करें
               </button>
               <button className="save-btn" onClick={handleSavePreferences}>
