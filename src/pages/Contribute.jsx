@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./Contribute.css";
 import qrImg from "../assets/scanner.jpg";
 
+// ✅ Same Apps Script URL as English site
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxjEChyTBmqyA4kB8fkR058PrZWBTEc9lStNTz1JZ_ICdQllGl1n8Vd2bFk73AR6toa/exec";
+
 const Contribute = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,88 +15,142 @@ const Contribute = () => {
   });
 
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const GOOGLE_FORM_ACTION =
-    "https://docs.google.com/forms/d/e/1FAIpQLSc--mBcPRvUVQPkEUSYrd6bI_Ht86Y9uXOgtuqUYoVtt6pUcA/formResponse";
-
-  const FORM_FIELDS = {
-    name: "entry.1031043690",
-    phone: "entry.2024733768",
-    amount: "entry.783555986",
-    transactionId: "entry.1214302814",
+  const showMessage = (text, time = 4000) => {
+    setMessage(text);
+    setTimeout(() => setMessage(""), time);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     let newValue = value;
 
-    if (name === "name") newValue = value.replace(/[^a-zA-Z\s\u0900-\u097F]/g, ""); // English + Hindi letters
-    if (name === "phone") newValue = value.replace(/\D/g, "").slice(0, 10);
+    if (name === "name") {
+      // Hindi + English letters allowed
+      newValue = value.replace(/[^a-zA-Z\s\u0900-\u097F]/g, "");
+    }
+
+    if (name === "phone") {
+      newValue = value.replace(/\D/g, "").slice(0, 10);
+    }
+
     if (name === "amount") {
       newValue = value.replace(/\D/g, "");
-      if (parseInt(newValue, 10) > 100000) {
+      if (parseInt(newValue || "0", 10) > 100000) {
         newValue = "100000";
       }
     }
-    if (name === "transactionId") newValue = value.replace(/\D/g, "").slice(0, 12);
+
+    if (name === "transactionId") {
+      newValue = value.replace(/\D/g, "").slice(0, 12);
+    }
 
     setFormData({ ...formData, [name]: newValue });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
 
     let errors = [];
 
-    // 🧩 Validation checks
-    if (!formData.name.trim()) errors.push("❌ नाम आवश्यक है।");
-    if (formData.phone.length !== 10) errors.push("❌ मोबाइल नंबर 10 अंकों का होना चाहिए।");
-    if (!formData.amount || parseInt(formData.amount, 10) <= 0)
-      errors.push("❌ राशि 0 से अधिक होनी चाहिए।");
-    else if (parseInt(formData.amount, 10) > 100000)
-      errors.push("❌ राशि ₹1,00,000 से अधिक नहीं हो सकती।");
-    if (formData.transactionId.length !== 12)
-      errors.push("❌ लेन-देन आईडी 12 अंकों की होनी चाहिए।");
-
-    // ✅ Check for duplicate Transaction ID in localStorage
-    const storedTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
-    if (storedTransactions.includes(formData.transactionId)) {
-      errors.push("❌ यह लेन-देन आईडी पहले से भेजी जा चुकी है।");
+    if (!formData.name.trim()) {
+      errors.push("❌ नाम आवश्यक है।");
     }
 
+    if (formData.phone.length !== 10) {
+      errors.push("❌ मोबाइल नंबर ठीक 10 अंकों का होना चाहिए।");
+    }
+
+    const amountNum = parseInt(formData.amount, 10);
+    if (!amountNum || amountNum <= 0) {
+      errors.push("❌ राशि 0 से अधिक होनी चाहिए।");
+    } else if (amountNum > 100000) {
+      errors.push("❌ राशि ₹1,00,000 से अधिक नहीं हो सकती।");
+    }
+
+    if (formData.transactionId.length !== 12) {
+      errors.push("❌ लेन-देन आईडी ठीक 12 अंकों की होनी चाहिए।");
+    }
+
+    // ❌ Validation errors
     if (errors.length > 0) {
-      setMessage(errors.join("\n"));
-      setTimeout(() => setMessage(""), 5000);
+      showMessage(errors.join("\n"));
+
+      // 🔥 Clear all fields (same as English)
+      setFormData({
+        name: "",
+        phone: "",
+        amount: "",
+        transactionId: "",
+      });
       return;
     }
 
-    // ✅ Submit form to Google Form
-    const form = document.createElement("form");
-    form.action = GOOGLE_FORM_ACTION;
-    form.method = "POST";
-    form.target = "hidden_iframe"; // prevents redirect
-    form.style.display = "none";
+    try {
+      setLoading(true);
 
-    Object.entries(FORM_FIELDS).forEach(([key, entryId]) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = entryId;
-      input.value = formData[key];
-      form.appendChild(input);
-    });
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        body: new URLSearchParams({
+          name: formData.name,
+          phone: formData.phone,
+          amount: formData.amount,
+          transactionId: formData.transactionId,
+        }),
+      });
 
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
+      const text = await response.text();
 
-    // Save Transaction ID locally to prevent duplicates
-    storedTransactions.push(formData.transactionId);
-    localStorage.setItem("transactions", JSON.stringify(storedTransactions));
+      // ❌ Duplicate transaction (server-side)
+      if (text === "Duplicate transaction") {
+        showMessage("❌ यह लेन-देन आईडी पहले से सबमिट की जा चुकी है।");
 
-    setMessage("✅ आपका योगदान सफलतापूर्वक भेज दिया गया!");
-    setFormData({ name: "", phone: "", amount: "", transactionId: "" });
+        setFormData({
+          name: "",
+          phone: "",
+          amount: "",
+          transactionId: "",
+        });
+        return;
+      }
 
-    setTimeout(() => setMessage(""), 3000);
+      // ✅ Success
+      if (text === "Success") {
+        showMessage("✅ आपका योगदान सफलतापूर्वक दर्ज हो गया है!", 3000);
+
+        setFormData({
+          name: "",
+          phone: "",
+          amount: "",
+          transactionId: "",
+        });
+        return;
+      }
+
+      // ❌ Unknown response
+      showMessage("❌ कुछ गलत हो गया। कृपया पुनः प्रयास करें।");
+
+      setFormData({
+        name: "",
+        phone: "",
+        amount: "",
+        transactionId: "",
+      });
+    } catch {
+      // ❌ Server error
+      showMessage("❌ सर्वर त्रुटि। कृपया बाद में प्रयास करें।");
+
+      setFormData({
+        name: "",
+        phone: "",
+        amount: "",
+        transactionId: "",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -111,6 +169,7 @@ const Contribute = () => {
             onChange={handleChange}
             required
           />
+
           <input
             type="tel"
             name="phone"
@@ -119,6 +178,7 @@ const Contribute = () => {
             onChange={handleChange}
             required
           />
+
           <input
             type="text"
             name="amount"
@@ -127,6 +187,7 @@ const Contribute = () => {
             onChange={handleChange}
             required
           />
+
           <input
             type="text"
             name="transactionId"
@@ -136,8 +197,8 @@ const Contribute = () => {
             required
           />
 
-          <button type="submit" className="submit-btn">
-            जमा करें
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "भेजा जा रहा है..." : "जमा करें"}
           </button>
         </form>
       </div>
@@ -149,18 +210,12 @@ const Contribute = () => {
             marginTop: "20px",
             whiteSpace: "pre-line",
             fontWeight: "bold",
+            textAlign: "center",
           }}
         >
           {message}
         </div>
       )}
-
-      {/* Hidden iframe to prevent redirect */}
-      <iframe
-        name="hidden_iframe"
-        style={{ display: "none" }}
-        title="hidden_iframe"
-      ></iframe>
     </div>
   );
 };
