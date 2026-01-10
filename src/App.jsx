@@ -3,8 +3,8 @@ import Navbar from './Components/Navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from './pages/Footer'
 import CookieConsent from './Components/Cookies/CookieConsent'
-//import Maintenance from './pages/Maintenance'
-//import { isMaintenanceTime } from './utils/maintenance'
+import Maintenance from './pages/Maintenance'
+import { isMaintenanceTime } from './utils/maintenance'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from "@vercel/speed-insights/react";
 const App = () => {
@@ -19,9 +19,9 @@ const App = () => {
       document.removeEventListener('contextmenu', disableRightClick);
     };
   }, []);
-  //if (isMaintenanceTime()) {
-    //return <Maintenance />
-  //}
+  if (isMaintenanceTime()) {
+    return <Maintenance />
+  }
   return (
     <>
       <Navbar />
