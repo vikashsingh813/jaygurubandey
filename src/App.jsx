@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Navbar from './Components/Navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from './pages/Footer'
@@ -7,6 +7,17 @@ import CookieConsent from './Components/Cookies/CookieConsent'
 //import { isMaintenanceTime } from './utils/maintenance'
 import { Analytics } from '@vercel/analytics/react'
 const App = () => {
+  useEffect(() => {
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener('contextmenu', disableRightClick);
+
+    return () => {
+      document.removeEventListener('contextmenu', disableRightClick);
+    };
+  }, []);
   //if (isMaintenanceTime()) {
     //return <Maintenance />
   //}
